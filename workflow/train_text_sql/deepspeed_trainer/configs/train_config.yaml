@@ -1,0 +1,111 @@
+# Model Configuration
+model:
+  base_model: "workflow/models/Qwen2.5-7B-Instruct"  # 基础模型名称
+  model_type: "causal_lm"  # 模型类型: causal_lm, seq2seq_lm
+  trust_remote_code: true  # 是否信任远程代码
+  
+  # QLoRA Configuration
+  lora:
+    r: 16  # LoRA rank
+    alpha: 32  # LoRA alpha
+    dropout: 0.1  # LoRA dropout
+    target_modules: [
+            "q_proj", 
+            "k_proj", 
+            "v_proj", 
+            "o_proj", 
+            "gate_proj", 
+            "up_proj", 
+            "down_proj"
+        ]  # 目标模块
+    bias: "none"  # 偏置处理: none, all, lora_only
+    task_type: "CAUSAL_LM"  # 任务类型
+
+  # Quantization Configuration
+  quantization:
+    load_in_4bit: true  # 4bit量化
+    load_in_8bit: false  # 8bit量化
+    bnb_4bit_compute_dtype: "float16"  # 计算数据类型
+    bnb_4bit_use_double_quant: true  # 双重量化
+    bnb_4bit_quant_type: "nf4"  # 量化类型: nf4, fp4
+
+# Training Configuration
+training:
+  num_epochs: 1  # 训练轮数
+  batch_size: 2  # 批次大小
+  weight_decay: 0.01  # 权重衰减
+  warmup_steps: 100  # 预热步数
+  max_grad_norm: 1.0  # 梯度裁剪
+  learning_rate: 2e-4  # 明确设置学习率
+  gradient_accumulation_steps: 4  # 明确设置梯度累积步数
+  
+  # Scheduler Configuration
+  scheduler:
+    type: "cosine"  # 调度器类型: linear, cosine, cosine_with_restarts
+    num_warmup_steps: 100  # 预热步数
+  
+  # Mixed Precision
+  fp16: true  # 是否使用FP16
+  bf16: false  # 是否使用BF16
+  
+  # Gradient Checkpointing
+  gradient_checkpointing: true  # 梯度检查点
+  
+  # Save Configuration
+  save_steps: 500  # 保存步数
+  save_total_limit: 3  # 最大保存数量
+  evaluation_strategy: "steps"  # 评估策略
+  eval_steps: 500  # 评估步数
+  
+  # Logging Configuration
+  logging_steps: 10  # 日志步数
+  log_level: "info"  # 日志级别
+
+# Data Configuration
+data:
+  train_data_dir: "workflow/text2sql_dataset_generator"
+  train_json_path: "train_text_sql.json"
+  val_data_dir: "workflow/text2sql_dataset_generator"
+  val_json_path: "val_text_sql.json"
+  validation_split: 0.1  # 验证集比例（仅在validation_file为null时使用）
+  max_length: 512  # 最大序列长度
+  truncation: true  # 是否截断
+  padding: "max_length"  # 填充策略
+  
+  # Data Format
+  format:
+    type: "conversations"  # 数据格式类型: conversations, instruction, chat, completion
+    system_message: "You are a helpful assistant that can generate SQL queries based on natural language questions. Please provide the SQL query in the format: sql: [SQL query]"
+
+# DeepSpeed Configuration
+deepspeed:
+  config_file: "workflow/train_text_sql/deepspeed_trainer/configs/deepspeed_config.json"  # DeepSpeed配置文件
+  zero_stage: 3  # ZeRO阶段
+  offload_optimizer: true  # 优化器卸载
+  offload_param: true  # 参数卸载
+
+# Logging and Monitoring
+logging:
+  project_name: "deepspeed-qlora"  # 项目名称
+  run_name: null  # 运行名称
+  log_to_wandb: false  # 是否使用WandB
+  log_to_tensorboard: true  # 是否使用TensorBoard
+  output_dir: "outputs"  # 输出目录
+
+# Hardware Configuration
+hardware:
+  num_gpus: "auto"  # GPU数量
+  gpu_memory_fraction: 0.9  # GPU内存使用比例
+  dataloader_num_workers: 4  # 数据加载器工作进程数
+  dataloader_pin_memory: true  # 数据加载器内存固定
+
+# Advanced Configuration
+advanced:
+  seed: 42  # 随机种子
+  dataloader_drop_last: true  # 丢弃最后不完整的批次
+  remove_unused_columns: false  # 移除未使用的列
+  group_by_length: false  # 按长度分组
+  length_column_name: "length"  # 长度列名
+  ignore_data_skip: false  # 忽略数据跳过
+  ddp_find_unused_parameters: false  # DDP查找未使用参数
+  dataloader_pin_memory_device: ""  # 数据加载器内存固定设备 

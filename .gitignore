@@ -1,0 +1,11 @@
+# Ignore data directories
+data/
+model*/
+models/
+
+
+# Ignore checkpoint directories
+*/checkpoints/
+
+# Ignore log files
+*.log

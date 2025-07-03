@@ -1,0 +1,432 @@
+{
+  "基金基本信息": {
+    "columns": {
+      "基金代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "基金全称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "基金简称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "管理人": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "托管人": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "基金类型": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "成立日期": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "到期日期": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "管理费率": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "托管费率": {
+        "type": "TEXT",
+        "pk": false
+      }
+    },
+    "foreign_keys": {}
+  },
+  "基金股票持仓明细": {
+    "columns": {
+      "基金代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "基金简称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "持仓日期": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "股票代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "股票名称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "数量": {
+        "type": "REAL",
+        "pk": false
+      },
+      "市值": {
+        "type": "REAL",
+        "pk": false
+      },
+      "市值占基金资产净值比": {
+        "type": "REAL",
+        "pk": false
+      },
+      "第N大重仓股": {
+        "type": "INTEGER",
+        "pk": false
+      },
+      "所在证券市场": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "所属国家(地区)": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "报告类型": {
+        "type": "TEXT",
+        "pk": false
+      }
+    },
+    "foreign_keys": {}
+  },
+  "基金债券持仓明细": {
+    "columns": {
+      "基金代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "基金简称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "持仓日期": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "债券类型": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "债券名称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "持债数量": {
+        "type": "REAL",
+        "pk": false
+      },
+      "持债市值": {
+        "type": "REAL",
+        "pk": false
+      },
+      "持债市值占基金资产净值比": {
+        "type": "REAL",
+        "pk": false
+      },
+      "第N大重仓股": {
+        "type": "INTEGER",
+        "pk": false
+      },
+      "所在证券市场": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "所属国家(地区)": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "报告类型": {
+        "type": "TEXT",
+        "pk": false
+      }
+    },
+    "foreign_keys": {}
+  },
+  "基金可转债持仓明细": {
+    "columns": {
+      "基金代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "基金简称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "持仓日期": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "对应股票代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "债券名称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "数量": {
+        "type": "REAL",
+        "pk": false
+      },
+      "市值": {
+        "type": "REAL",
+        "pk": false
+      },
+      "市值占基金资产净值比": {
+        "type": "REAL",
+        "pk": false
+      },
+      "第N大重仓股": {
+        "type": "INTEGER",
+        "pk": false
+      },
+      "所在证券市场": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "所属国家(地区)": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "报告类型": {
+        "type": "TEXT",
+        "pk": false
+      }
+    },
+    "foreign_keys": {}
+  },
+  "基金日行情表": {
+    "columns": {
+      "基金代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "交易日期": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "单位净值": {
+        "type": "REAL",
+        "pk": false
+      },
+      "复权单位净值": {
+        "type": "REAL",
+        "pk": false
+      },
+      "累计单位净值": {
+        "type": "REAL",
+        "pk": false
+      },
+      "资产净值": {
+        "type": "REAL",
+        "pk": false
+      }
+    },
+    "foreign_keys": {}
+  },
+  "A股票日行情表": {
+    "columns": {
+      "股票代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "交易日": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "昨收盘(元)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "今开盘(元)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "最高价(元)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "最低价(元)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "收盘价(元)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "成交量(股)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "成交金额(元)": {
+        "type": "REAL",
+        "pk": false
+      }
+    },
+    "foreign_keys": {}
+  },
+  "港股票日行情表": {
+    "columns": {
+      "股票代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "交易日": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "昨收盘(元)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "今开盘(元)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "最高价(元)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "最低价(元)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "收盘价(元)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "成交量(股)": {
+        "type": "REAL",
+        "pk": false
+      },
+      "成交金额(元)": {
+        "type": "REAL",
+        "pk": false
+      }
+    },
+    "foreign_keys": {}
+  },
+  "A股公司行业划分表": {
+    "columns": {
+      "股票代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "交易日期": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "行业划分标准": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "一级行业名称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "二级行业名称": {
+        "type": "TEXT",
+        "pk": false
+      }
+    },
+    "foreign_keys": {}
+  },
+  "基金规模变动表": {
+    "columns": {
+      "基金代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "基金简称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "公告日期": {
+        "type": "TIMESTAMP",
+        "pk": false
+      },
+      "截止日期": {
+        "type": "TIMESTAMP",
+        "pk": false
+      },
+      "报告期期初基金总份额": {
+        "type": "REAL",
+        "pk": false
+      },
+      "报告期基金总申购份额": {
+        "type": "REAL",
+        "pk": false
+      },
+      "报告期基金总赎回份额": {
+        "type": "REAL",
+        "pk": false
+      },
+      "报告期期末基金总份额": {
+        "type": "REAL",
+        "pk": false
+      },
+      "定期报告所属年度": {
+        "type": "INTEGER",
+        "pk": false
+      },
+      "报告类型": {
+        "type": "TEXT",
+        "pk": false
+      }
+    },
+    "foreign_keys": {}
+  },
+  "基金份额持有人结构": {
+    "columns": {
+      "基金代码": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "基金简称": {
+        "type": "TEXT",
+        "pk": false
+      },
+      "公告日期": {
+        "type": "TIMESTAMP",
+        "pk": false
+      },
+      "截止日期": {
+        "type": "TIMESTAMP",
+        "pk": false
+      },
+      "机构投资者持有的基金份额": {
+        "type": "REAL",
+        "pk": false
+      },
+      "机构投资者持有的基金份额占总份额比例": {
+        "type": "REAL",
+        "pk": false
+      },
+      "个人投资者持有的基金份额": {
+        "type": "REAL",
+        "pk": false
+      },
+      "个人投资者持有的基金份额占总份额比例": {
+        "type": "REAL",
+        "pk": false
+      },
+      "定期报告所属年度": {
+        "type": "INTEGER",
+        "pk": false
+      },
+      "报告类型": {
+        "type": "TEXT",
+        "pk": false
+      }
+    },
+    "foreign_keys": {}
+  }
+}
