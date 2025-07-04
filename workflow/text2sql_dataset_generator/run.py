@@ -6,11 +6,11 @@ from .generator.base_query_generator import QueryGenerator
 # from .generator.add_query_generator import QueryGenerator
 from .run_sql_from_json import execute_sqls_from_json
 import json
+import argparse
 
-def main():
+def main(num_rounds=200, save_data_path="workflow/text2sql_dataset_generator/test_text_sql.json"):
     schema_path = "workflow/text2sql_dataset_generator/schema.json"
     db_url = "data/dataset/fund_data.db"
-    save_data_path = "workflow/text2sql_dataset_generator/test_text_sql.json"
     # 初始化模块
     db = DatabaseConnector(schema_path,db_url)
     db.save_schema_json()
@@ -21,7 +21,7 @@ def main():
     dataset = []
     identity_id = 0  # 唯一标识计数器
 
-    for i in range(200):
+    for i in range(num_rounds):
         queries = generator.generate_queries(db_schema)
         print(f'queries {i}:', queries)
         
@@ -53,4 +53,8 @@ def main():
     execute_sqls_from_json(save_data_path,db_url)
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Generate text2sql dataset.")
+    parser.add_argument('--num_rounds', type=int, default=200, help='生成轮数（每轮生成若干条问答对）')
+    parser.add_argument('--save_data_path', type=str, default="workflow/text2sql_dataset_generator/test_text_sql.json", help='保存生成数据的路径')
+    args = parser.parse_args()
+    main(num_rounds=args.num_rounds, save_data_path=args.save_data_path)
