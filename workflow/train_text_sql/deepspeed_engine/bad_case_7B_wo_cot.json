@@ -5,7 +5,8 @@
     },
     {
         "nl":"在2020年12月年报(含半年报)中，富安达科技领航混合A基金持有市值最多的前10只股票中，所在证券市场是深圳证券交易所的有几个？",
-        "sql":"SELECT COUNT(*) FROM (SELECT t3.`股票代码` AS `股票代码`, t3.`股票名称` AS `股票名称`, t3.`市值占基金资产净值比` AS `占比` FROM `基金份额持有人结构` t3 JOIN `基金可转债持仓明细` t4 ON t3.`基金代码` = t4.`基金代码` AND t3.`定期报告所属年度` BETWEEN 2020 AND 2021 WHERE t3.`公告类型` LIKE '%年报%' UNION ALL SELECT t2.`股票代码` AS `股票代码`, t2.`股票名称` AS `股票名称`, t2.`市值占基金资产净值比` AS `占比` FROM `基金可转债持仓明细` t2 JOIN `基金份额持有人结构` t3 ON t2.`基金代码` = t3.`基金代码` AND t3.`定期报告所属年度` BETWEEN 2020 AND 2021 WHERE t3.`公告类型` LIKE '%年报%') AS t5 WHERE t5.`占比` > 0.01 ORDER BY t5.`占比` DESC LIMIT 10;"
+        "sql":"SELECT COUNT(*) FROM (SELECT t3.`股票代码` AS `股票代码`, t3.`股票名称` AS `股票名称`, t3.`市值占基金资产净值比` AS `占比` FROM `基金份额持有人结构` t3 JOIN `基金可转债持仓明细` t4 ON t3.`基金代码` = t4.`基金代码` AND t3.`定期报告所属年度` BETWEEN 2020 AND 2021 WHERE t3.`公告类型` LIKE '%年报%' UNION ALL SELECT t2.`股票代码` AS `股票代码`, t2.`股票名称` AS `股票名称`, t2.`市值占基金资产净值比` AS `占比` FROM `基金可转债持仓明细` t2 JOIN `基金份额持有人结构` t3 ON t2.`基金代码` = t3.`基金代码` AND t3.`定期报告所属年度` BETWEEN 2020 AND 2021 WHERE t3.`公告类型` LIKE '%年报%') AS t5 WHERE t5.`占比` > 0.01 ORDER BY t5.`占比` DESC LIMIT 10;",
+        "sql_14B":"SELECT COUNT(*) AS count FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '2020-01-01' AND '2020-12-31' AND `基金代码` = '670004' AND `所在证券市场` = '深圳证券交易所' ORDER BY `市值` DESC LIMIT 10;"
     },
     {
         "nl":"我想了解九泰聚鑫混合C基金,在2020年四季度的季报第1大重股。该持仓股票当个季度的涨跌幅?请四舍五入保留百分比到小数点两位。",
