@@ -30,7 +30,7 @@ def parse_args():
     parser.add_argument(
         "--base_model",
         type=str,
-        default="workflow/models/Tongyi-Finance-14B-Chat",
+        default="workflow/models/Qwen2.5-7B-Instruct",
         help="基础模型路径或名称"
     )
     
@@ -74,6 +74,12 @@ def parse_args():
         "--chat",
         action="store_true",
         help="基础模型是否支持聊天模式"
+    )
+    
+    parser.add_argument(
+        "--batch",
+        action="store_true",
+        help="是否批量推理test data并评估准确率"
     )
     
     return parser.parse_args()
@@ -232,6 +238,52 @@ def chat_interactive_mode(model, tokenizer, args):
         except Exception as e:
             print(f"\n错误: {e}")
 
+def instruct_batch_mode(model, tokenizer, args, test_path="workflow/text2sql_dataset_generator/test_text_sql.json"):
+    """批量推理模式：对test data中的每个question生成SQL并评估准确率"""
+    import json
+    import os
+    
+    if not os.path.exists(test_path):
+        print(f"测试文件不存在: {test_path}")
+        return
+    
+    with open(test_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    total = 0
+    correct = 0
+    for item in data:
+        # 兼容不同数据结构
+        conversations = item.get("conversations", [])
+        user_msg = next((msg["value"] for msg in conversations if msg["from"] == "user"), None)
+        gt_sql = next((msg["value"] for msg in conversations if msg["from"] == "assistant"), None)
+        if not user_msg or not gt_sql:
+            continue
+        total += 1
+        config = load_config(args.config)
+        system_prompt = config['data']['format']['system_message']
+        prompt = (
+            f"<|im_start|>system\n{system_prompt}<|im_end|>\n"
+            f"<|im_start|>user\n{user_msg}<|im_end|>\n"
+            f"<|im_start|>assistant\n"
+        )
+        pred_sql = generate_response(
+            model=model,
+            tokenizer=tokenizer,
+            prompt=prompt,
+            max_length=args.max_length,
+            temperature=args.temperature
+        )
+        # 简单字符串比对（可根据需要改为更复杂的SQL等价性判断）
+        if pred_sql.strip() == gt_sql.strip():
+            correct += 1
+        else:
+            print(f"Q: {user_msg}\nGT: {gt_sql}\nPRED: {pred_sql}\n---")
+    if total == 0:
+        print("无有效测试样本！")
+        return
+    acc = correct / total * 100
+    print(f"\n推理完成，准确率: {acc:.2f}% ({correct}/{total})")
 
 def main():
     """主函数"""
@@ -262,7 +314,9 @@ def main():
     )
     
     print("模型加载完成！")
-    if args.chat:
+    if args.batch:
+        instruct_batch_mode(model, tokenizer, args)
+    elif args.chat:
         # 如果基础模型支持聊天模式
         chat_interactive_mode(model, tokenizer, args)
     else:

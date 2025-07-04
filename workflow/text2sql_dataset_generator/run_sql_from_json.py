@@ -87,7 +87,7 @@ def execute_sqls_from_json(data_path, db_path):
                     if result["status"] != "success":
                         print(f"❌ 执行失败 [{result['status']}]: {sql[:50]}...")
                         return False
-            print(f"✅ 执行成功: {item['id']}")
+            print(f"✅ 执行成功")
             return True
         except Exception as e:
             print(f"⚠️ 未知异常: {str(e)[:50]}...")
@@ -105,7 +105,7 @@ def execute_sqls_from_json(data_path, db_path):
                 else:
                     removed_count += 1
             except TimeoutError:
-                print(f"⏰ 全局超时终止: {item['id']}")
+                print(f"⏰ 全局超时终止")
                 removed_count += 1
 
     # 写回有效数据

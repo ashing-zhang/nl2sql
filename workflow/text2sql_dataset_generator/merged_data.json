@@ -375,18 +375,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出基金可转债持仓明细中，对应股票代码在港股票日行情表中2023年10月1日收盘价高于10元的记录"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`基金代码`, t1.`基金简称`, t1.`债券名称`, t2.`收盘价` FROM `基金可转债持仓明细` t1 JOIN `港股票日行情表` t2 ON t1.`对应股票代码` = t2.`股票代码` WHERE t2.`交易日` = '20231001' AND t2.`收盘价` > 10;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "统计2023年基金债券持仓明细中，各债券类型的平均持债数量"
       },
       {
@@ -404,18 +392,6 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `基金简称`, `债券名称`, `市值占基金资产净值比`, `第N大重仓股` FROM `基金可转债持仓明细` WHERE `市值占基金资产净值比` > 0.05 AND `第N大重仓股` <= 3;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出港股票日行情表中2023年10月1日成交量最高的股票代码及其对应的基金可转债持仓明细中的基金代码"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t2.`基金代码`, t1.`股票代码`, t1.`成交量` FROM `港股票日行情表` t1 JOIN `基金可转债持仓明细` t2 ON t1.`股票代码` = t2.`对应股票代码` WHERE t1.`交易日` = '20231001' ORDER BY t1.`成交量` DESC LIMIT 1;"
       }
     ]
   },
@@ -1052,18 +1028,6 @@
       {
         "from": "assistant",
         "value": "SELECT `债券类型`, `持债数量` FROM `基金债券持仓明细` WHERE `持仓日期` = '20231001' AND `基金代码` = '000001';"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出2023年10月1日，A股市场中收盘价最高的股票代码及其收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `收盘价` FROM `A股票日行情表` WHERE `交易日` = '20231001' ORDER BY `收盘价` DESC LIMIT 1;"
       }
     ]
   },
@@ -2007,47 +1971,11 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出2023年10月1日，A股市场中收盘价高于开盘价的股票代码及其收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `收盘价` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价` > `今开盘`;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年10月1日，基金持仓中第1大重仓股的股票名称及其所在证券市场"
       },
       {
         "from": "assistant",
         "value": "SELECT `股票名称`, `所在证券市场` FROM `基金股票持仓明细` WHERE `持仓日期` = '20231001' AND `第N大重仓股` = 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出2023年10月1日，A股市场中成交量最大的股票所属的一级行业名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t2.`一级行业名称` FROM `A股票日行情表` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日` = '20231001' ORDER BY t1.`成交量` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询2023年10月1日，基金持仓中数量最多的股票名称及其数量，同时显示该股票的收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`股票名称`, t1.`数量`, t2.`收盘价` FROM `基金股票持仓明细` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`持仓日期` = '20231001' AND t2.`交易日` = '20231001' ORDER BY t1.`数量` DESC LIMIT 1;"
       }
     ]
   },
@@ -2228,18 +2156,6 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `二级行业名称` FROM `A股公司行业划分表` WHERE `一级行业名称` = '信息技术';"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询港股市场中2023年10月1日收盘价高于开盘价的股票代码及其收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `收盘价` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND `收盘价` > `今开盘`;"
       }
     ]
   },
@@ -3567,18 +3483,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出2023年第三季度个人投资者持有比例增加最多的基金简称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t2.`基金简称` FROM `基金份额持有人结构` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 AND t1.`报告类型` = '季报' ORDER BY (MAX(t1.`个人投资者持有的基金份额占总份额比例`) - MIN(t1.`个人投资者持有的基金份额占总份额比例`)) DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年10月1日收盘价最高的A股票代码及其收盘价"
       },
       {
@@ -4071,18 +3975,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出2023年10月1日单位净值增长最快的基金代码和简称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金代码`, `基金简称` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `复权单位净值` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年个人投资者持有基金份额比例低于10%的所有基金的简称和比例"
       },
       {
@@ -4172,18 +4064,6 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, MAX(CAST(REPLACE(`管理费率`, '%', '') AS REAL)) AS `最高管理费率` FROM `基金基本信息` WHERE `成立日期` LIKE '2023%' GROUP BY `基金代码` ORDER BY `最高管理费率` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出2023年10月1日，资产净值最高的前5只基金的基金代码和基金简称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金代码`, `基金简称` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `资产净值` DESC LIMIT 5;"
       }
     ]
   },
@@ -4400,18 +4280,6 @@
       {
         "from": "assistant",
         "value": "SELECT `债券名称`, `基金简称` FROM `基金可转债持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `市值` DESC LIMIT 5;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出在2023年10月1日收盘价高于其开盘价的股票代码及其收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `收盘价` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价` > `今开盘`;"
       }
     ]
   },
@@ -4803,18 +4671,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出2023年全年，A股日行情表中，收盘价涨幅最大的股票及其涨幅百分比。"
-      },
-      {
-        "from": "assistant",
-        "value": "WITH first_day AS (SELECT `股票代码`, `收盘价` FROM `A股票日行情表` WHERE `交易日` = '20230101'), last_day AS (SELECT `股票代码`, `收盘价` FROM `A股票日行情表` WHERE `交易日` = '20231231') SELECT f.`股票代码`, ((l.`收盘价` - f.`收盘价`) / f.`收盘价`) * 100 AS `涨幅百分比` FROM first_day f JOIN last_day l ON f.`股票代码` = l.`股票代码` ORDER BY `涨幅百分比` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "哪些基金的持债市值占基金资产净值比超过5%？"
       },
       {
@@ -5019,18 +4875,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年10月1日，单位净值增长最快的五只基金的代码和简称。"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金代码`, `基金简称` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `单位净值` DESC LIMIT 5;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "列出所有债券类型及其对应的平均持债市值，按平均持债市值降序排列。"
       },
       {
@@ -5084,18 +4928,6 @@
       {
         "from": "assistant",
         "value": "SELECT * FROM `基金基本信息` WHERE `基金类型` = '股票型' AND CAST(REPLACE(SUBSTRING(`管理费率`, 1, LENGTH(`管理费率`) - 1), ',', '.') AS REAL) < 1.0;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "统计2023年每个季度基金持有的可转债的平均市值占基金资产净值比"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT SUBSTRING(`持仓日期`, 1, 4) || 'Q' || ((CAST(SUBSTRING(`持仓日期`, 5, 2) AS INTEGER) - 1) / 3 + 1 AS quarter, AVG(`市值占基金资产净值比`) AS avg_ratio FROM `基金可转债持仓明细` WHERE `持仓日期` BETWEEN '20230101' AND '20231231' GROUP BY quarter;"
       }
     ]
   },
@@ -6279,18 +6111,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出2023年报告类型为'年报'的基金中，个人投资者持有的基金份额占总份额比例最高的前3只基金"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 AND `报告类型` = '年报' ORDER BY `个人投资者持有的基金份额占总份额比例` DESC LIMIT 3;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出2023年第二季度，基金规模变动表中基金总赎回份额超过总申购份额的基金代码和简称"
       },
       {
@@ -6591,18 +6411,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出管理费率低于行业平均水平的基金，列出它们的基金代码、基金全称和管理费率"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`基金代码`, t1.`基金全称`, t1.`管理费率` FROM `基金基本信息` t1 WHERE CAST(REPLACE(t1.`管理费率`, '%', '') AS REAL) < (SELECT AVG(CAST(REPLACE(`管理费率`, '%', '') AS REAL) FROM `基金基本信息`);"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年，基金持有的债券类型分布，即每种债券类型的总持债市值"
       },
       {
@@ -6776,18 +6584,6 @@
       {
         "from": "assistant",
         "value": "SELECT COUNT(DISTINCT `股票代码`) AS `股票数量` FROM `A股公司行业划分表` WHERE `一级行业名称` = '信息技术' AND `交易日期` LIKE '2023%';"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出2023年单位净值增长率最高的前3只基金及其代码"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`基金代码`, t1.`基金简称`, (t2.`单位净值` - t1.`单位净值`) / t1.`单位净值` AS `增长率` FROM `基金日行情表` t1 JOIN `基金日行情表` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`交易日期` = '20230101' AND t2.`交易日期` = '20231231' ORDER BY `增长率` DESC LIMIT 3;"
       }
     ]
   },
@@ -7160,18 +6956,6 @@
       {
         "from": "assistant",
         "value": "SELECT `基金全称`, `基金简称`, `管理费率` FROM `基金基本信息`;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查找2023年公告的基金规模变动信息，包括基金简称、公告日期和报告期期末基金总份额"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金简称`, `公告日期`, `报告期期末基金总份额` FROM `基金规模变动表` WHERE YEAR(`公告日期`) = 2023;"
       }
     ]
   },
@@ -7755,18 +7539,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出2023年第三季度，A股公司行业划分表中，属于'信息技术'一级行业的股票代码和名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称` FROM A股公司行业划分表 WHERE (`交易日期` LIKE '202307%' OR `交易日期` LIKE '202308%' OR `交易日期` LIKE '202309%') AND `一级行业名称` = '信息技术';"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年第四季度，基金规模变动表和基金份额持有人结构中，机构投资者持有的基金份额占总份额比例超过50%的基金的基金代码和简称"
       },
       {
@@ -7887,18 +7659,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年复权单位净值增长率最高的前5只基金的基金代码和基金全称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`基金代码`, t2.`基金全称`, (MAX(t1.`复权单位净值`) / MIN(t1.`复权单位净值`) - 1 AS growth_rate FROM `基金日行情表` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`交易日期` LIKE '2023%' GROUP BY t1.`基金代码` ORDER BY growth_rate DESC LIMIT 5;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年10月1日A股市场中收盘价最高的股票代码及其所属的一级行业名称"
       },
       {
@@ -7959,35 +7719,11 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年10月1日A股票日行情表中收盘价最高的前5只股票"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `收盘价` FROM `A股票日行情表` WHERE `交易日` = '20231001' ORDER BY `收盘价` DESC LIMIT 5;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出基金债券持仓明细中持债市值占基金资产净值比超过5%的所有债券名称"
       },
       {
         "from": "assistant",
         "value": "SELECT `债券名称` FROM `基金债券持仓明细` WHERE `持债市值占基金资产净值比` > 0.05;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询港股票日行情表中2023年10月1日成交量大于100万股的股票代码和成交金额"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `成交金额` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND `成交量` > 1000000;"
       }
     ]
   },
@@ -8619,18 +8355,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年10月1日A股票日行情表中收盘价最高的股票代码和收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `收盘价` FROM `A股票日行情表` WHERE `交易日` = '20231001' ORDER BY `收盘价` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "列出所有基金类型及其对应的平均管理费率"
       },
       {
@@ -8648,18 +8372,6 @@
       {
         "from": "assistant",
         "value": "SELECT `基金全称`, `管理人` FROM `基金基本信息` ORDER BY `成立日期` ASC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询A股票日行情表中成交量最大的前5个交易日的股票代码和成交量"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `成交量` FROM `A股票日行情表` ORDER BY `成交量` DESC LIMIT 5;"
       }
     ]
   },
@@ -8727,18 +8439,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年第三季度，A股市场中电子行业的一级行业名称下，哪些股票的收盘价超过了其昨收盘价的10%？"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`股票代码`, t1.`一级行业名称`, t2.`交易日`, t2.`收盘价`, t2.`昨收盘(元)`, (t2.`收盘价` - t2.`昨收盘(元)`)/t2.`昨收盘(元)` * 100 AS 涨幅 FROM `A股公司行业划分表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`一级行业名称` = '电子' AND t2.`交易日` BETWEEN '20230701' AND '20230930' HAVING 涨幅 > 10;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出2023年第二季度，基金持仓中市值占基金资产净值比最高的前5只股票及其对应的基金简称。"
       },
       {
@@ -8756,18 +8456,6 @@
       {
         "from": "assistant",
         "value": "SELECT `基金简称`, `公告日期` FROM `基金份额持有人结构` WHERE `公告日期` BETWEEN '2023-01-01 00:00:00' AND '2023-03-31 00:00:00' AND `机构投资者持有的基金份额占总份额比例` > 80;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出2023年，A股市场中二级行业名称为'半导体'的股票，其日成交金额的平均值。"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT AVG(t2.`成交金额(元)`) AS 平均成交金额 FROM `A股公司行业划分表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`二级行业名称` = '半导体' AND t2.`交易日` BETWEEN '20230101' AND '20231231';"
       }
     ]
   },
@@ -8804,18 +8492,6 @@
       {
         "from": "assistant",
         "value": "SELECT `债券类型`, COUNT(*) AS `数量` FROM `基金债券持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' GROUP BY `债券类型`;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询2023年10月1日A股市场中，收盘价最高的5只股票的代码和名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称` FROM `A股票日行情表` WHERE `交易日` = '20231001' ORDER BY `收盘价(元)` DESC LIMIT 5;"
       }
     ]
   },
@@ -8883,18 +8559,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "统计2023年各一级行业的A股公司在港股市场中的平均收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`一级行业名称`, AVG(t2.`收盘价(元)`) AS `平均收盘价` FROM `A股公司行业划分表` t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t2.`定期报告所属年度` = 2023 GROUP BY t1.`一级行业名称`;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年第三季度末，持债市值占基金资产净值比超过5%的债券名称及其所属基金简称"
       },
       {
@@ -8912,18 +8576,6 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `基金简称` FROM `基金规模变动表` WHERE `定期报告所属年度` = 2023 AND `报告期基金总申购份额` > 100000000;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询2023年10月1日，单位净值增长最快的5只基金的基金代码和基金简称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金代码`, `基金简称` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `单位净值` DESC LIMIT 5;"
       }
     ]
   },
@@ -9471,18 +9123,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "列出2023年9月30日港股市场中成交量最高的10只股票"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称`, `成交量(股)` FROM `港股票日行情表` WHERE `交易日` = '20230930' ORDER BY `成交量(股)` DESC LIMIT 10;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出2023年第二季度基金持仓中，第1大重仓股为腾讯控股的基金及其管理人"
       },
       {
@@ -9663,18 +9303,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询A股和港股在2023年10月1日的收盘价差异最大的股票代码及其差异"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`股票代码`, ABS(t1.`收盘价(元)` - t2.`收盘价(元)` AS `差异` FROM `A股票日行情表` t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日` = '20231001' AND t2.`交易日` = '20231001' ORDER BY `差异` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询管理费率低于1%的基金全称及其管理费率"
       },
       {
@@ -9716,18 +9344,6 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `股票名称`, `基金代码`, `基金简称` FROM `基金股票持仓明细` WHERE `持仓日期` = '20230930' ORDER BY `市值占基金资产净值比` DESC LIMIT 5;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询2023年10月1日港股市场中，成交量最高的三只股票的代码和名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称` FROM `港股票日行情表` WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 3;"
       }
     ]
   },
@@ -9956,18 +9572,6 @@
       {
         "from": "assistant",
         "value": "SELECT `股票名称`, `基金简称` FROM `基金股票持仓明细` WHERE `市值占基金资产净值比` > 0.05;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "比较2023年同一交易日，A股票的收盘价与基金持有的该股票的市值"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`股票代码`, t1.`股票名称`, t1.`收盘价(元)`, t2.`市值` FROM `A股票日行情表` t1 JOIN `基金股票持仓明细` t2 ON t1.`股票代码` = t2.`股票代码` AND t1.`交易日` = t2.`持仓日期` WHERE t1.`交易日` LIKE '2023%';"
       }
     ]
   },
@@ -10419,18 +10023,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出2023年第四季度，基金持有的股票和可转债中，市值占基金资产净值比最高的前3只证券及其所属基金"
-      },
-      {
-        "from": "assistant",
-        "value": "(SELECT `基金代码`, `基金简称`, `股票名称` AS `证券名称`, `市值占基金资产净值比` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20231001' AND '20231231' ORDER BY `市值占基金资产净值比` DESC LIMIT 3) UNION ALL (SELECT `基金代码`, `基金简称`, `债券名称` AS `证券名称`, `市值占基金资产净值比` FROM `基金可转债持仓明细` WHERE `持仓日期` BETWEEN '20231001' AND '20231231' ORDER BY `市值占基金资产净值比` DESC LIMIT 3) ORDER BY `市值占基金资产净值` DESC LIMIT 3;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年个人投资者持有的基金份额超过机构投资者的基金代码和简称"
       },
       {
@@ -10544,30 +10136,6 @@
       {
         "from": "assistant",
         "value": "SELECT * FROM `基金可转债持仓明细` WHERE `对应股票代码` = '600000';"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询2023年10月1日A股票日行情表中，收盘价高于开盘价的股票代码和股票名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价` > `今开盘`;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询基金日行情表中，2023年10月1日单位净值增长最快的基金代码和基金简称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金代码`, `基金简称` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `单位净值` DESC LIMIT 1;"
       }
     ]
   },
@@ -11000,18 +10568,6 @@
       {
         "from": "assistant",
         "value": "SELECT `股票名称`, `基金简称` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `市值占基金资产净值比` DESC LIMIT 5;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询港股票日行情表中，2023年10月1日收盘价高于开盘价的股票代码和股票名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
       }
     ]
   },
@@ -11576,18 +11132,6 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `二级行业名称` FROM `A股公司行业划分表` WHERE `一级行业名称` = '信息技术';"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出基金日行情表中，2023年10月1日单位净值增长幅度（单位净值 - 昨收盘(元)）最大的前3只基金的基金代码和增长幅度"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金代码`, (`单位净值` - `昨收盘(元)`) AS `增长幅度` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `增长幅度` DESC LIMIT 3;"
       }
     ]
   },
@@ -12267,18 +11811,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年10月1日单位净值增长最快的5只基金的代码和简称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金代码`, `基金简称` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `单位净值` DESC LIMIT 5;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出管理人相同的基金中，成立日期最早的基金的全称和简称"
       },
       {
@@ -12320,18 +11852,6 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `成交量(股)` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `成交量(股)` > 1000000;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "列出所有基金类型及其对应的平均管理费率"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金类型`, AVG(CAST(REPLACE(`管理费率`, '%', '') AS REAL) AS `平均管理费率` FROM `基金基本信息` GROUP BY `基金类型`;"
       }
     ]
   },
@@ -13179,18 +12699,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出2023年10月1日收盘价高于昨日收盘价的A股股票代码和名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `昨收盘(元)`;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年第二季度，基金持有的股票市值占基金资产净值比最高的前五只股票的股票代码和名称"
       },
       {
@@ -13395,18 +12903,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询港股票日行情表中2023年10月1日收盘价较昨收盘价涨幅超过10%的股票代码和涨幅百分比"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, ((`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` * 100 AS `涨幅百分比` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND ((`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` > 0.1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "列出基金可转债持仓明细中第1大重仓股的债券名称及其所在证券市场，按市值降序排列"
       },
       {
@@ -13575,18 +13071,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年10月1日基金日行情表中单位净值增长最快的基金代码和单位净值增长率"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金代码`, (`单位净值` - `昨收盘(元)`) / `昨收盘(元)` AS `单位净值增长率` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `单位净值增长率` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出管理费率最高的基金的全称和简称"
       },
       {
@@ -13652,18 +13136,6 @@
       {
         "from": "assistant",
         "value": "SELECT `债券名称`, `基金简称` FROM 基金可转债持仓明细 WHERE `持仓日期` = '20231001' AND `市值占基金资产净值比` > 0.05;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询A股票日行情表中，2023年10月1日收盘价较昨收盘涨幅超过5%的股票代码和股票名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称` FROM A股票日行情表 WHERE `交易日` = '20231001' AND (`收盘价` - `昨收盘(元)`) / `昨收盘(元)` > 0.05;"
       }
     ]
   },
@@ -14223,18 +13695,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询港股票日行情表中，2023年10月1日成交量最高的股票代码和成交金额"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `成交金额` FROM 港股票日行情表 WHERE `交易日` = '20231001' ORDER BY `成交量` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出基金管理人为'华夏基金'且托管人为'工商银行'的所有基金的基金代码、基金全称和成立日期"
       },
       {
@@ -14468,18 +13928,6 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `单位净值` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `单位净值` DESC LIMIT 5;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "统计2023年各一级行业的股票数量"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `一级行业名称`, COUNT(*) AS `股票数量` FROM `A股公司行业划分表` WHERE `定期报告所属年度` = 2023 GROUP BY `一级行业名称`;"
       }
     ]
   },
@@ -14727,18 +14175,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年10月1日，A股市场中收盘价最高的股票代码和名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `收盘价` FROM `A股票日行情表` WHERE `交易日` = '20231001' ORDER BY `收盘价` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "统计每只基金持有的A股股票的平均市值占基金资产净值比"
       },
       {
@@ -14979,18 +14415,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询港股票日行情表和基金日行情表中2023年10月1日收盘价和单位净值都上涨的股票代码和基金代码"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `昨收盘(元)`; SELECT `基金代码` FROM `基金日行情表` WHERE `交易日期` = '20231001' AND `单位净值` > LAG(`单位净值`, 1) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`);"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出管理费率和托管费率都低于1%的基金基本信息"
       },
       {
@@ -15068,18 +14492,6 @@
       {
         "from": "assistant",
         "value": "SELECT `债券名称`, `基金简称` FROM `基金债券持仓明细` WHERE `持仓日期` = '20231001' AND `持债数量` > 1000000;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询港股票日行情表中，2023年10月1日成交量最高的前3只股票"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `成交量` FROM `港股票日行情表` WHERE `交易日` = '20231001' ORDER BY `成交量` DESC LIMIT 3;"
       }
     ]
   },
@@ -15344,18 +14756,6 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`债券名称`, t1.`持债市值占基金资产净值比`, t2.* FROM `基金债券持仓明细` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`持仓日期` = '20230930' AND t1.`持债市值占基金资产净值比` > 0.05;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询2023年10月1日，单位净值增长率最高的前10只基金的简称和单位净值"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金简称`, `单位净值` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `单位净值` DESC LIMIT 10;"
       }
     ]
   },
@@ -15728,18 +15128,6 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`股票名称`, t1.`一级行业名称` FROM `A股公司行业划分表` t1 JOIN `基金股票持仓明细` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t2.`持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY t2.`市值占基金资产净值比` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询2023年港股市场中，成交量最高的前5只股票的名称和它们的收盘价。"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票名称`, `收盘价(元)` FROM `港股票日行情表` WHERE `交易日` BETWEEN '20230101' AND '20231231' ORDER BY `成交量(股)` DESC LIMIT 5;"
       }
     ]
   },
@@ -16371,18 +15759,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询每只基金的基金代码、全称，以及最近一次报告的机构投资者持有的基金份额"
-      },
-      {
-        "from": "assistant",
-        "value": "WITH RankedReports AS (SELECT `基金代码`, `基金全称`, `机构投资者持有的基金份额`, `公告日期`, ROW_NUMBER() OVER (PARTITION BY `基金代码` ORDER BY `公告日期` DESC) AS rn FROM `基金基本信息` t1 JOIN `基金份额持有人结构` t2 ON t1.`基金代码` = t2.`基金代码`) SELECT `基金代码`, `基金全称`, `机构投资者持有的基金份额` FROM RankedReports WHERE rn = 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出2023年所有基金的总申购份额和总赎回份额，按基金代码分组"
       },
       {
@@ -16779,18 +16155,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年10月1日单位净值增长最快的基金的代码和简称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金代码`, `基金简称` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `单位净值` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出管理人相同的基金对中，成立日期最早的基金代码和简称"
       },
       {
@@ -16923,35 +16287,11 @@
     "conversations": [
       {
         "from": "user",
-        "value": "比较A股票日行情表和港股票日行情表中股票代码为'00001'的股票在2023年10月1日的收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `收盘价(元)` FROM `A股票日行情表` WHERE `股票代码` = '00001' AND `交易日` = '20231001'; SELECT `收盘价(元)` FROM `港股票日行情表` WHERE `股票代码` = '00001' AND `交易日` = '20231001';"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询A股票日行情表中成交量最高的前5只股票的股票代码和成交量"
       },
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `成交量(股)` FROM `A股票日行情表` ORDER BY `成交量(股)` DESC LIMIT 5;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询A股票日行情表和港股票日行情表中2023年10月1日成交金额的平均值"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT AVG(`成交金额(元)`) AS `平均成交金额` FROM `A股票日行情表` WHERE `交易日` = '20231001'; SELECT AVG(`成交金额(元)`) AS `平均成交金额` FROM `港股票日行情表` WHERE `交易日` = '20231001';"
       }
     ]
   },
@@ -17139,18 +16479,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询基金可转债持仓明细中，对应股票代码在A股票日行情表中有记录的持仓信息，包括基金代码、基金简称、债券名称和对应股票的收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`基金代码`, t1.`基金简称`, t1.`债券名称`, t2.`收盘价(元)` FROM 基金可转债持仓明细 t1 JOIN A股票日行情表 t2 ON t1.`对应股票代码` = t2.`股票代码`;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年第一季度，A股市场中电子行业的一级行业名称和对应的股票代码"
       },
       {
@@ -17204,18 +16532,6 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `基金简称`, `管理费率` FROM `基金基本信息` WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1.0;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询2023年10月1日，港股市场中成交量最高的前五只股票的代码和名称。"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称` FROM `港股票日行情表` WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 5;"
       }
     ]
   },
@@ -17619,18 +16935,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出港股票日行情表中，2023年10月1日收盘价高于开盘价的所有股票代码和股票名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "统计每只基金在2023年第三季度持有的股票数量总和，并找出持有股票数量最多的前三个基金简称"
       },
       {
@@ -17835,35 +17139,11 @@
     "conversations": [
       {
         "from": "user",
-        "value": "列出2023年A股市场中成交量排名前五的股票及其行业信息"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t1.`股票代码`, t1.`成交量(股)`, t2.`一级行业名称`, t2.`二级行业名称` FROM `A股票日行情表` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE strftime('%Y', t1.`交易日`) = '2023' ORDER BY t1.`成交量(股)` DESC LIMIT 5;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "找出2023年个人投资者持有比例最高的基金及其规模变动情况"
       },
       {
         "from": "assistant",
         "value": "SELECT t1.`基金简称`, t1.`个人投资者持有的基金份额占总份额比例`, t2.`报告期期初基金总份额`, t2.`报告期期末基金总份额` FROM `基金份额持有人结构` t1 JOIN `基金规模变动表` t2 ON t1.`基金代码` = t2.`基金代码` AND t1.`基金简称` = t2.`基金简称` WHERE t1.`定期报告所属年度` = 2023 ORDER BY t1.`个人投资者持有的基金份额占总份额比例` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询2023年A股市场中各一级行业的平均收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t2.`一级行业名称`, AVG(t1.`收盘价(元)`) AS `平均收盘价` FROM `A股票日行情表` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE strftime('%Y', t1.`交易日`) = '2023' GROUP BY t2.`一级行业名称`;"
       }
     ]
   },
@@ -17979,47 +17259,11 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年10月1日A股市场中收盘价最高的股票代码及其收盘价"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `收盘价` FROM `A股票日行情表` WHERE `交易日` = '20231001' ORDER BY `收盘价` DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "列出所有二级行业名称及其对应的A股公司数量"
       },
       {
         "from": "assistant",
         "value": "SELECT `二级行业名称`, COUNT(*) AS `公司数量` FROM `A股公司行业划分表` GROUP BY `二级行业名称`;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询港股市场中2023年10月1日成交金额超过100万的股票代码和成交金额"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `成交金额` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND `成交金额` > 1000000;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出A股市场中2023年10月1日收盘价较前一日涨幅超过5%的股票代码"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND ((`收盘价` - `昨收盘(元)`) / `昨收盘(元)` * 100) > 5;"
       }
     ]
   },
@@ -18068,18 +17312,6 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金代码`, t2.`基金简称`, t1.`资产净值` FROM `基金日行情表` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`单位净值` > 2.0 ORDER BY t1.`资产净值` DESC;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出2023年成立的管理人为'某某管理公司'的基金的平均管理费率"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT AVG(CAST(REPLACE(`管理费率`, '%', '') AS REAL) AS `平均管理费率` FROM `基金基本信息` WHERE `成立日期` LIKE '2023%' AND `管理人` = '某某管理公司';"
       }
     ]
   },
@@ -18447,18 +17679,6 @@
     "conversations": [
       {
         "from": "user",
-        "value": "找出2023年港股日行情表中，收盘价较昨收盘涨幅超过5%的股票代码和交易日"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `交易日` FROM `港股票日行情表` WHERE `交易日` LIKE '2023%' AND (`收盘价` - `昨收盘(元)`)/`昨收盘(元)` > 0.05;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "查询2023年A股公司行业划分表中，二级行业名称包含'软件'的所有公司的一级行业名称和二级行业名称"
       },
       {
@@ -18620,18 +17840,6 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金全称`, t1.`管理人` FROM 基金基本信息 t1 JOIN (SELECT `基金代码`, (`单位净值` - LAG(`单位净值`, 1) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`)) AS growth FROM 基金日行情表 WHERE `交易日期` = '20231001') t2 ON t1.`基金代码` = t2.`基金代码` ORDER BY t2.growth DESC LIMIT 1;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询2023年报告期期末基金总份额超过10亿的基金中，个人投资者持有的基金份额占总份额比例最高的基金简称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 AND `报告期期末基金总份额` > 1000000000 ORDER BY `个人投资者持有的基金份额占总份额比例` DESC LIMIT 1;"
       }
     ]
   },
@@ -18848,18 +18056,6 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `市值占基金资产净值比` FROM `基金股票持仓明细` WHERE `持仓日期` = '20230930' AND `市值占基金资产净值比` > 0.05;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出2023年10月1日收盘价高于开盘价的港股股票代码和名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT `股票代码`, `股票名称` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
       }
     ]
   },
@@ -19827,35 +19023,11 @@
     "conversations": [
       {
         "from": "user",
-        "value": "查询2023年10月1日A股市场中收盘价高于开盘价且成交量最大的10只股票的代码和名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t3.`股票代码`, t2.`股票名称`, t3.`成交量` FROM `A股票日行情表` t3 JOIN `基金股票持仓明细` t2 ON t3.`股票代码` = t2.`股票代码` WHERE t3.`交易日` = '20231001' AND t3.`收盘价` > t3.`今开盘` ORDER BY t3.`成交量` DESC LIMIT 10;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
         "value": "列出2023年第二季度基金持仓中，属于'信息技术'一级行业的股票的总市值"
       },
       {
         "from": "assistant",
         "value": "SELECT SUM(t2.`市值`) AS total_market_value FROM `基金股票持仓明细` t2 JOIN `A股公司行业划分表` t1 ON t2.`股票代码` = t1.`股票代码` WHERE t1.`一级行业名称` = '信息技术' AND t2.`持仓日期` BETWEEN '20230401' AND '20230630';"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出2023年9月30日A股市场中，收盘价较前一日涨幅超过5%的股票及其所属的二级行业名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t3.`股票代码`, (t3.`收盘价` - t3.`昨收盘`) / t3.`昨收盘` * 100 AS increase_rate, t1.`二级行业名称` FROM `A股票日行情表` t3 JOIN `A股公司行业划分表` t1 ON t3.`股票代码` = t1.`股票代码` WHERE t3.`交易日` = '20230930' AND (t3.`收盘价` - t3.`昨收盘`) / t3.`昨收盘` * 100 > 5;"
       }
     ]
   },
@@ -20168,18 +19340,6 @@
       {
         "from": "assistant",
         "value": "SELECT `债券名称`, COUNT(`基金代码`) AS `基金数量` FROM `基金可转债持仓明细` GROUP BY `债券名称` ORDER BY `基金数量` DESC LIMIT 3;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "查询A股公司行业划分与基金可转债持仓的联合信息，找出基金持有的可转债对应的A股公司的一级行业名称"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t2.`债券名称`, t1.`一级行业名称` FROM `A股公司行业划分表` t1 JOIN `基金可转债持仓明细` t2 ON t1.`股票代码` = t2.`对应股票代码`;"
       }
     ]
   },
@@ -20600,18 +19760,6 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`基金简称`, t2.`管理人` FROM `基金份额持有人结构` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 AND t1.`机构投资者持有的基金份额占总份额比例` > 50;"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "from": "user",
-        "value": "找出单位净值增长最快的5只基金的全称和基金类型"
-      },
-      {
-        "from": "assistant",
-        "value": "SELECT t2.`基金全称`, t2.`基金类型` FROM `基金日行情表` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` GROUP BY t1.`基金代码` ORDER BY (MAX(t1.`单位净值`) - (MIN(t1.`单位净值`)) DESC LIMIT 5;"
       }
     ]
   },
