@@ -62,6 +62,8 @@ def create_base_model(
         torch_dtype=torch_dtype,
         device_map=device_map
     )
+    # 打印模型参数名
+    # logger.info(f"Model parameters: {[name for name, _ in model.named_parameters()]}")
     
     # 为量化训练准备模型
     if quantization_config and (quantization_config.get("load_in_4bit") or quantization_config.get("load_in_8bit")):

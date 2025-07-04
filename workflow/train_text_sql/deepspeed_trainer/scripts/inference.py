@@ -30,7 +30,7 @@ def parse_args():
     parser.add_argument(
         "--base_model",
         type=str,
-        default="workflow/models/Qwen2.5-7B-Instruct",
+        default="workflow/models/Tongyi-Finance-14B-Chat",
         help="基础模型路径或名称"
     )
     
@@ -68,6 +68,12 @@ def parse_args():
         "--trust_remote_code",
         action="store_true",
         help="是否信任远程代码"
+    )
+
+    parser.add_argument(
+        "--chat",
+        action="store_true",
+        help="基础模型是否支持聊天模式"
     )
     
     return parser.parse_args()
@@ -131,7 +137,8 @@ def generate_response(
     # 生成
     with torch.no_grad():
         outputs = model.generate(
-            **inputs,
+            input_ids=inputs['input_ids'],
+            attention_mask=inputs['attention_mask'],
             max_length=max_length,
             temperature=temperature,
             do_sample=True,
@@ -148,8 +155,7 @@ def generate_response(
     
     return generated_text.strip()
 
-
-def interactive_mode(model, tokenizer, args):
+def instruct_interactive_mode(model, tokenizer, args):
     """交互模式"""
     print("进入交互模式，输入 'quit' 退出")
     print("-" * 50)
@@ -190,6 +196,41 @@ def interactive_mode(model, tokenizer, args):
             break
         except Exception as e:
             print(f"\n错误: {e}")
+            
+def chat_interactive_mode(model, tokenizer, args):
+    """交互模式"""
+    print("进入交互模式，输入 'quit' 退出")
+    print("-" * 50)
+    history = None
+    while True:
+        try:
+            user_input = input("\n用户: ").strip()
+            
+            if user_input.lower() in ['quit', 'exit', 'q']:
+                print("再见！")
+                break
+            
+            if not user_input:
+                continue
+            
+            config = load_config(args.config)
+            # 格式化输入
+            system_prompt = config['data']['format']['system_message']
+            prompt = (
+                f"<|im_start|>system\n{system_prompt}<|im_end|>\n"
+                f"<|im_start|>user\n{user_input}<|im_end|>\n"
+                f"<|im_start|>assistant\n"
+            )
+            
+            response, history = model.chat(tokenizer, prompt, history)
+            
+            print(f"\n助手: {response}")
+        
+        except KeyboardInterrupt:
+            print("\n\n再见！")
+            break
+        except Exception as e:
+            print(f"\n错误: {e}")
 
 
 def main():
@@ -221,10 +262,14 @@ def main():
     )
     
     print("模型加载完成！")
-    
-    # 进入交互模式
-    interactive_mode(model, tokenizer, args)
+    if args.chat:
+        # 如果基础模型支持聊天模式
+        chat_interactive_mode(model, tokenizer, args)
+    else:
+        # 否则使用指令模式
+        logger.info("基础模型不支持聊天模式，使用指令模式")
+        instruct_interactive_mode(model, tokenizer, args)
 
 
 if __name__ == "__main__":
-    main() 
+    main()

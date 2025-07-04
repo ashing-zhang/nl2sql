@@ -1,6 +1,6 @@
 # Model Configuration
 model:
-  base_model: "workflow/models/Qwen2.5-7B-Instruct"  # 基础模型名称
+  base_model: "workflow/models/Tongyi-Finance-14B-Chat"  # 基础模型名称
   model_type: "causal_lm"  # 模型类型: causal_lm, seq2seq_lm
   trust_remote_code: true  # 是否信任远程代码
   
@@ -9,15 +9,21 @@ model:
     r: 16  # LoRA rank
     alpha: 32  # LoRA alpha
     dropout: 0.1  # LoRA dropout
+    # target_modules: [
+    #         "q_proj", 
+    #         "k_proj", 
+    #         "v_proj", 
+    #         "o_proj", 
+    #         "gate_proj", 
+    #         "up_proj", 
+    #         "down_proj"
+    #     ]  # Qwen2.5-7B-Instruct的LoRA目标模块
     target_modules: [
-            "q_proj", 
-            "k_proj", 
-            "v_proj", 
-            "o_proj", 
-            "gate_proj", 
-            "up_proj", 
-            "down_proj"
-        ]  # 目标模块
+            c_attn,
+            c_proj,
+            w1,
+            w2
+        ]  # Tongyi-Finance-14B-Chat的LoRA目标模块
     bias: "none"  # 偏置处理: none, all, lora_only
     task_type: "CAUSAL_LM"  # 任务类型
 
@@ -31,7 +37,7 @@ model:
 
 # Training Configuration
 training:
-  num_epochs: 1  # 训练轮数
+  num_epochs: 5  # 训练轮数
   batch_size: 2  # 批次大小
   weight_decay: 0.01  # 权重衰减
   warmup_steps: 100  # 预热步数
