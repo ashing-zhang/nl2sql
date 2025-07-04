@@ -4,6 +4,7 @@
 from .database.connector import DatabaseConnector
 from .generator.base_query_generator import QueryGenerator
 # from .generator.add_query_generator import QueryGenerator
+from .run_sql_from_json import execute_sqls_from_json
 import json
 
 def main():
@@ -34,7 +35,7 @@ def main():
                     },
                     {
                         "from": "assistant",
-                        "value": "sql:"+q["sql"].strip() 
+                        "value": q["sql"].strip() 
                     }
                 ]
             }
@@ -48,6 +49,8 @@ def main():
             indent=2,
             ensure_ascii=False  # 禁用ASCII转义
         )
+    # 数据清洗
+    execute_sqls_from_json(save_data_path,db_url)
 
 if __name__ == "__main__":
     main()

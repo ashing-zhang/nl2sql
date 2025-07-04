@@ -38,7 +38,7 @@ def merge_datasets(first_data_path,second_data_path,merged_data_path):
     print(f"Merged dataset created with {len(merged_data)} unique conversations")
 
 if __name__ == '__main__':
-    first_data_path = 'workflow/text2sql_dataset_generator/text2sql_dataset.json'
-    second_data_path = 'workflow/text2sql_dataset_generator/text2sql_dataset_add.json'
+    first_data_path = 'workflow/text2sql_dataset_generator/merged_data.json'
+    second_data_path = 'workflow/text2sql_dataset_generator/text2sql_dataset.json'
     merged_data_path = 'workflow/text2sql_dataset_generator/merged_data.json'
     merge_datasets(first_data_path,second_data_path,merged_data_path)

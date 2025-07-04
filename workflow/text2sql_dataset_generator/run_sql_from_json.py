@@ -1,5 +1,6 @@
 '''
     数据清洗：将执行效率低下或执行失败的SQL语句从数据集中删除
+    python -m workflow.text2sql_dataset_generator.run_sql_from_json
 '''
 import json
 import sqlite3
@@ -94,6 +95,7 @@ def execute_sqls_from_json(data_path, db_path):
 
     with ThreadPoolExecutor(max_workers=4) as executor:
         futures = {executor.submit(process_item, item): item for item in data}
+        total_count = len(data)  # 总数
         
         for future in futures:
             item = futures[future]
@@ -110,8 +112,14 @@ def execute_sqls_from_json(data_path, db_path):
     with open(data_path, 'w', encoding='utf-8') as f:
         json.dump(valid_data, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ 清洗完成 - 保留{len(valid_data)}条，删除{removed_count}条")
+    # 计算并显示成功比例
+    success_count = len(valid_data)
+    if total_count > 0:
+        success_ratio = success_count / total_count * 100
+    else:
+        success_ratio = 0
+    print(f"✅ 清洗完成 - 保留{success_count}条，删除{removed_count}条")
+    print(f"✅ 执行成功比例: {success_ratio:.2f}% ({success_count}/{total_count})")
 
 if __name__ == "__main__":
-    # execute_sqls_from_json("text2sql_dataset.json", "../../data/dataset/fund_data.db")
-    execute_sqls_from_json("text2sql_dataset_add.json", "../../data/dataset/fund_data.db")
+    execute_sqls_from_json("workflow/text2sql_dataset_generator/merged_data.json", "data/dataset/fund_data.db")

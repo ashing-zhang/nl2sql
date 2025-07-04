@@ -12,7 +12,7 @@ class QueryGenerator:
             
         # 直接使用OpenAI客户端
         self.client = OpenAI(
-            api_key="sk-9129020bc36d41e3aab88df3ae382863",
+            api_key="sk-61e1ad520a824247b30191cd7d3bfc09",
             base_url="https://api.deepseek.com/v1"  # 注意添加/v1路径
         )
 
@@ -100,7 +100,7 @@ class QueryGenerator:
             response = self.client.chat.completions.create(
                 model="deepseek-chat",  # DeepSeek指定模型
                 messages=[{"role": "user", "content": prompt}],
-                temperature=0.7,
+                temperature=0.9,
                 max_tokens=1000,
                 response_format={"type": "json_object"}  # 强制JSON格式
             )
