@@ -253,7 +253,6 @@ def instruct_batch_mode(model, tokenizer, args, test_path="workflow/text2sql_dat
     total = 0
     correct = 0
     for item in data:
-        # 兼容不同数据结构
         conversations = item.get("conversations", [])
         user_msg = next((msg["value"] for msg in conversations if msg["from"] == "user"), None)
         gt_sql = next((msg["value"] for msg in conversations if msg["from"] == "assistant"), None)
@@ -274,16 +273,27 @@ def instruct_batch_mode(model, tokenizer, args, test_path="workflow/text2sql_dat
             max_length=args.max_length,
             temperature=args.temperature
         )
+        # 将推理结果写回数据
+        conversations.append({
+            "from": "predict",
+            "value": pred_sql
+        })
         # 简单字符串比对（可根据需要改为更复杂的SQL等价性判断）
         if pred_sql.strip() == gt_sql.strip():
             correct += 1
         else:
             print(f"Q: {user_msg}\nGT: {gt_sql}\nPRED: {pred_sql}\n---")
+    
+    # 将更新后的数据写回文件
+    with open(test_path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    
     if total == 0:
         print("无有效测试样本！")
         return
     acc = correct / total * 100
     print(f"\n推理完成，准确率: {acc:.2f}% ({correct}/{total})")
+    print(f"推理结果已写回文件: {test_path}")
 
 def main():
     """主函数"""
