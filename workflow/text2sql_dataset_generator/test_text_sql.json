@@ -8,6 +8,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 ORDER BY `报告期期末基金总份额` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 ORDER BY `报告期期末基金总份额` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 ORDER BY `报告期期末基金总份额` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 ORDER BY `报告期期末基金总份额` DESC LIMIT 1;"
       }
     ]
   },
@@ -20,6 +32,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
       }
     ]
   },
@@ -32,6 +56,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金全称`, `管理费率` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1.0"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `管理费率` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `管理费率` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `管理费率` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1;"
       }
     ]
   },
@@ -44,6 +80,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`基金全称`, t1.`单位净值` FROM 基金日行情表 t1 JOIN 基金基本信息 t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`交易日期` = '20231001' AND t1.`单位净值` > 1.5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t2.`基金全称`, t1.`单位净值` FROM `基金日行情表` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`交易日期` = '20231001' AND t1.`单位净值` > 1.5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t2.`基金全称`, t1.`单位净值` FROM `基金日行情表` t1 JOIN `基金基本信息表` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`交易日期` = '20231001' AND t1.`单位净值` > 1.5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t2.`基金全称`, t1.`单位净值` FROM `基金日行情表` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`交易日期` = '20231001' AND t1.`单位净值` > 1.5;"
       }
     ]
   },
@@ -56,6 +104,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 ORDER BY (`报告期基金总申购份额` - `报告期基金总赎回份额`) DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 ORDER BY (`报告期基金总申购份额` - `报告期基金总赎回份额`) DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 ORDER BY (`报告期基金总申购份额` - `报告期基金总赎回份额`) DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 ORDER BY (`报告期基金总申购份额` - `报告期基金总赎回份额`) DESC LIMIT 1;"
       }
     ]
   },
@@ -68,6 +128,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`基金简称`, t2.`机构投资者持有的基金份额占总份额比例` FROM `基金份额持有人结构` t2 WHERE t2.`定期报告所属年度` = 2023 ORDER BY t2.`机构投资者持有的基金份额占总份额比例` DESC LIMIT 5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `机构投资者持有的基金份额占总份额比例` FROM 基金份额持有人结构 WHERE SUBSTR(`定期报告所属年度`, 1, 4) = '2023' ORDER BY `机构投资者持有的基金份额占总份额比例` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `机构投资者持有的基金份额占总份额比例` FROM 基金份额持有人结构 WHERE SUBSTR(`定期报告所属年度`, 1, 4) = '2023' ORDER BY `机构投资者持有的基金份额占总份额比例` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `机构投资者持有的基金份额占总份额比例` FROM 基金份额持有人结构 WHERE SUBSTR(`定期报告所属年度`, 1, 4) = '2023' ORDER BY `机构投资者持有的基金份额占总份额比例` DESC LIMIT 5;"
       }
     ]
   },
@@ -80,6 +152,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`股票代码`, t1.`二级行业名称` FROM `A股公司行业划分表` t1 WHERE t1.`一级行业名称` = '信息技术'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `二级行业名称` FROM A股公司行业划分表 WHERE `一级行业名称` = '信息技术';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `二级行业名称` FROM A股公司行业划分表 WHERE `一级行业名称` = '信息技术';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `二级行业名称` FROM A股公司行业划分表 WHERE `一级行业名称` = '信息技术';"
       }
     ]
   },
@@ -92,6 +176,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`基金代码`, t2.`基金简称` FROM `基金份额持有人结构` t2 WHERE t2.`个人投资者持有的基金份额占总份额比例` > 80 AND t2.`机构投资者持有的基金份额占总份额比例` < 20"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `个人投资者持有的基金份额占总份额比例` > 80 AND `机构投资者持有的基金份额占总份额比例` < 20;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `个人投资者持有的基金份额占总份额比例` > 80 AND `机构投资者持有的基金份额占总份额比例` < 20;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `个人投资者持有的基金份额占总份额比例` > 80 AND `机构投资者持有的基金份额占总份额比例` < 20;"
       }
     ]
   },
@@ -104,6 +200,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`一级行业名称`, COUNT(*) AS `公司数量` FROM `A股公司行业划分表` t1 GROUP BY t1.`一级行业名称`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `一级行业名称`, COUNT(*) AS company_count FROM A股公司行业划分表 GROUP BY `一级行业名称`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `一级行业名称`, COUNT(*) AS company_count FROM A股公司行业划分表 GROUP BY `一级行业名称`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `一级行业名称`, COUNT(*) AS company_count FROM A股公司行业划分表 GROUP BY `一级行业名称`;"
       }
     ]
   },
@@ -116,6 +224,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`基金简称`, ABS(t2.`机构投资者持有的基金份额占总份额比例` - t2.`个人投资者持有的基金份额占总份额比例`) AS `持有比例差异` FROM `基金份额持有人结构` t2 WHERE t2.`定期报告所属年度` = 2023 ORDER BY `持有比例差异` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, ABS(`机构投资者持有的基金份额占总份额比例` - `个人投资者持有的基金份额占总份额比例`) AS `持有比例差异` FROM 基金份额持有人结构 WHERE `成立日期` LIKE '2023%' ORDER BY `持有比例差异` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, ABS(`机构投资者持有的基金份额占总份额比例` - `个人投资者持有的基金份额占总份额比例`) AS `持有比例差异` FROM 基金份额持有人结构 WHERE `成立日期` LIKE '2023%' ORDER BY `持有比例差异` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, ABS(`机构投资者持有的基金份额占总份额比例` - `个人投资者持有的基金份额占总份额比例`) AS `持有比例差异` FROM 基金份额持有人结构 WHERE `成立日期` LIKE '2023%' ORDER BY `持有比例差异` DESC LIMIT 1;"
       }
     ]
   },
@@ -128,6 +248,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金简称`, t1.`管理人`, MAX(t2.`机构投资者持有的基金份额占总份额比例`) AS `最高机构持有比例` FROM `基金基本信息` t1 JOIN `基金份额持有人结构` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t2.`定期报告所属年度` = 2023 GROUP BY t1.`基金简称`, t1.`管理人` ORDER BY `最高机构持有比例` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金简称`, t2.`管理人` FROM `基金份额持有人结构` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 ORDER BY t1.`机构投资者持有的基金份额占总份额比例` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金简称`, t2.`管理人` FROM `基金份额持有人结构` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 ORDER BY t1.`机构投资者持有的基金份额占总份额比例` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金简称`, t2.`管理人` FROM `基金份额持有人结构` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 ORDER BY t1.`机构投资者持有的基金份额占总份额比例` DESC LIMIT 1;"
       }
     ]
   },
@@ -140,6 +272,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`债券名称`, t1.`基金简称` FROM `基金可转债持仓明细` t1 WHERE t1.`持仓日期` BETWEEN '20230701' AND '20230930' AND t1.`市值占基金资产净值比` > 0.05"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM 基金可转债持仓明细 WHERE `持仓日期` BETWEEN '20230701' AND '20230930' AND `市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM 基金可转债持仓明细 WHERE `持仓日期` BETWEEN '20230701' AND '20230930' AND `市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM 基金可转债持仓明细 WHERE `持仓日期` BETWEEN '20230701' AND '20230930' AND `市值占基金资产净值比` > 0.05;"
       }
     ]
   },
@@ -152,6 +296,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金类型`, AVG(CAST(REPLACE(`管理费率`, '%', '') AS REAL)) AS `平均管理费率` FROM `基金基本信息` GROUP BY `基金类型` ORDER BY `平均管理费率` DESC"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金类型`, AVG(CAST(REPLACE(`管理费率`, '%', '') AS REAL)) AS avg_management_fee FROM 基金基本信息 GROUP BY `基金类型` ORDER BY avg_management_fee DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金类型`, AVG(CAST(REPLACE(`管理费率`, '%', '') AS REAL)) AS avg_management_fee FROM `基金基本信息` GROUP BY `基金类型` ORDER BY avg_management_fee DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金类型`, AVG(CAST(REPLACE(`管理费率`, '%', '') AS REAL)) AS avg_management_fee FROM 基金基本信息 GROUP BY `基金类型` ORDER BY avg_management_fee DESC;"
       }
     ]
   },
@@ -164,6 +320,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金代码`, t1.`基金简称`, (MAX(t2.`个人投资者持有的基金份额占总份额比例`) - MIN(t2.`个人投资者持有的基金份额占总份额比例`)) AS `持有比例增长` FROM `基金基本信息` t1 JOIN `基金份额持有人结构` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t2.`定期报告所属年度` = 2023 GROUP BY t1.`基金代码`, t1.`基金简称` ORDER BY `持有比例增长` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM (SELECT `基金代码`, `基金简称`, (`个人投资者持有的基金份额占总份额比例` - LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `定期报告所属年度`)) AS growth_rate FROM `基金份额持有人结构`) t WHERE `定期报告所属年度` = 2023 ORDER BY growth_rate DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "WITH GrowthRates AS (SELECT `基金代码`, `基金简称`, (`个人投资者持有的基金份额占总份额比例` - LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `定期报告所属年度`)) / LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `定期报告所属年度`) AS growth_rate FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023) SELECT `基金代码`, `基金简称` FROM GrowthRates ORDER BY growth_rate DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "WITH GrowthRates AS (SELECT `基金代码`, `基金简称`, (`个人投资者持有的基金份额占总份额比例` - LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `定期报告所属年度`)) / LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `定期报告所属年度`) AS growth_rate FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023) SELECT `基金代码`, `基金简称` FROM GrowthRates ORDER BY growth_rate DESC LIMIT 1;"
       }
     ]
   },
@@ -176,6 +344,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金全称`, `基金简称` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1.0"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金简称` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金简称` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金简称` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1;"
       }
     ]
   },
@@ -188,6 +368,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
       }
     ]
   },
@@ -200,6 +392,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金全称`, `基金简称`, `管理费率` FROM 基金基本信息 WHERE `成立日期` < '20200101' ORDER BY CAST(REPLACE(`管理费率`, '%', '') AS REAL) DESC"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT * FROM `基金基本信息` WHERE `成立日期` < '20200101' ORDER BY CAST(REPLACE(`管理费率`, '%', '') AS REAL) DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT * FROM `基金基本信息` WHERE `成立日期` < '20200101' ORDER BY CAST(REPLACE(`管理费率`, '%', '') AS REAL) DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT * FROM `基金基本信息` WHERE `成立日期` < '20200101' ORDER BY CAST(REPLACE(`管理费率`, '%', '') AS REAL) DESC;"
       }
     ]
   },
@@ -212,6 +416,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `成交量(股)` FROM A股票日行情表 WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `成交量(股)` FROM A股票日行情表 WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `成交量(股)` FROM A股票日行情表 WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `成交量(股)` FROM A股票日行情表 WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 5;"
       }
     ]
   },
@@ -224,6 +440,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金全称`, `基金类型` FROM 基金基本信息 WHERE `管理人` = '华夏基金' AND `托管人` = '工商银行'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金类型` FROM 基金基本信息 WHERE `管理人` = '华夏基金' AND `托管人` = '工商银行';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金类型` FROM 基金基本信息 WHERE `管理人` = '华夏基金' AND `托管人` = '工商银行';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金类型` FROM 基金基本信息 WHERE `管理人` = '华夏基金' AND `托管人` = '工商银行';"
       }
     ]
   },
@@ -236,6 +464,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `二级行业名称` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '信息技术'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `二级行业名称` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '信息技术';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `二级行业名称` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '信息技术';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `二级行业名称` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '信息技术';"
       }
     ]
   },
@@ -248,6 +488,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `成交金额(元)` FROM `港股票日行情表` WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, SUM(`成交金额(元)`) AS total_amount FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY total_amount DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, SUM(`成交金额(元)`) AS total_amount FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY total_amount DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, SUM(`成交金额(元)`) AS total_amount FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY total_amount DESC LIMIT 1;"
       }
     ]
   },
@@ -260,6 +512,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票名称`, `基金代码` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `市值占基金资产净值比` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票名称`, `基金代码` FROM 基金股票持仓明细 WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `市值占基金资产净值比` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票名称`, `基金代码` FROM 基金股票持仓明细 WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `市值占基金资产净值比` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票名称`, `基金代码` FROM 基金股票持仓明细 WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `市值占基金资产净值比` DESC LIMIT 1;"
       }
     ]
   },
@@ -272,6 +536,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`股票代码`, t2.`收盘价(元)` FROM `A股公司行业划分表` t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`一级行业名称` = '金融' AND t1.`二级行业名称` LIKE '%银行%' AND t2.`交易日` = '20231001'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t2.`收盘价(元)` FROM A股公司行业划分表 t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`一级行业名称` = '金融' AND t1.`二级行业名称` LIKE '%银行%' AND t2.`交易日` = '20231001';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t2.`收盘价(元)` FROM A股公司行业划分表 t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`一级行业名称` = '金融' AND t1.`二级行业名称` LIKE '%银行%' AND t2.`交易日` = '20231001';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t2.`收盘价(元)` FROM A股公司行业划分表 t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`一级行业名称` = '金融' AND t1.`二级行业名称` LIKE '%银行%' AND t2.`交易日` = '20231001';"
       }
     ]
   },
@@ -284,6 +560,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `基金简称` FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 ORDER BY `机构投资者持有的基金份额占总份额比例` DESC LIMIT 5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE SUBSTR(`定期报告所属年度`, 1, 4) = '2023' ORDER BY `机构投资者持有的基金份额占总份额比例` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE SUBSTR(`定期报告所属年度`, 1, 4) = '2023' ORDER BY `机构投资者持有的基金份额占总份额比例` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金份额持有人结构 WHERE SUBSTR(`定期报告所属年度`, 1, 4) = '2023' ORDER BY `机构投资者持有的基金份额占总份额比例` DESC LIMIT 5;"
       }
     ]
   },
@@ -296,6 +584,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `交易日期` FROM 基金日行情表 ORDER BY (`复权单位净值` - `单位净值`) DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "WITH RankedFunds AS (SELECT `基金代码`, `交易日期`, `单位净值`, (`单位净值` - LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`)) / LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`) AS growth_rate FROM 基金日行情表) SELECT `基金代码`, `交易日期` FROM RankedFunds WHERE growth_rate IS NOT NULL AND growth_rate > 0 ORDER BY growth_rate DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "WITH RankedFunds AS (SELECT `基金代码`, `交易日期`, `单位净值`, (`单位净值` - LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`)) / LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`) AS growth_rate FROM 基金日行情表) SELECT `基金代码`, `交易日期` FROM RankedFunds WHERE growth_rate IS NOT NULL AND growth_rate > 0 ORDER BY growth_rate DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "WITH RankedFunds AS (SELECT `基金代码`, `交易日期`, `单位净值`, (`单位净值` - LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`)) / LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`) AS growth_rate FROM 基金日行情表) SELECT `基金代码`, `交易日期` FROM RankedFunds WHERE growth_rate IS NOT NULL AND growth_rate > 0 ORDER BY growth_rate DESC LIMIT 1;"
       }
     ]
   },
@@ -308,6 +608,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金全称`, `基金类型` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1 AND CAST(REPLACE(`托管费率`, '%', '') AS REAL) < 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金类型` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1 AND CAST(REPLACE(`托管费率`, '%', '') AS REAL) < 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金类型` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1 AND CAST(REPLACE(`托管费率`, '%', '') AS REAL) < 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金类型` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1 AND CAST(REPLACE(`托管费率`, '%', '') AS REAL) < 1;"
       }
     ]
   },
@@ -320,6 +632,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `公告日期` FROM 基金份额持有人结构 ORDER BY ABS(`机构投资者持有的基金份额占总份额比例` - `个人投资者持有的基金份额占总份额比例`) DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `公告日期` FROM 基金份额持有人结构 ORDER BY (`机构投资者持有的基金份额占总份额比例` - `个人投资者持有的基金份额占总份额比例`) DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `公告日期` FROM 基金份额持有人结构 ORDER BY (`机构投资者持有的基金份额占总份额比例` - `个人投资者持有的基金份额占总份额比例`) DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `公告日期` FROM `基金份额持有人结构` ORDER BY ABS(`机构投资者持有的基金份额占总份额比例` - `个人投资者持有的基金份额占总份额比例`) DESC LIMIT 1;"
       }
     ]
   },
@@ -332,6 +656,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 AND `报告类型` LIKE '%第三季度%' ORDER BY `报告期基金总申购份额` DESC LIMIT 5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `截止日期` BETWEEN '2023-07-01 00:00:00' AND '2023-09-30 00:00:00' GROUP BY `基金代码`, `基金简称` ORDER BY SUM(`报告期基金总申购份额`) DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `截止日期` BETWEEN '2023-07-01 00:00:00' AND '2023-09-30 00:00:00' GROUP BY `基金代码`, `基金简称` ORDER BY SUM(`报告期基金总申购份额`) DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金规模变动表 WHERE `截止日期` BETWEEN '2023-07-01 00:00:00' AND '2023-09-30 00:00:00' GROUP BY `基金代码`, `基金简称` ORDER BY SUM(`报告期基金总申购份额`) DESC LIMIT 5;"
       }
     ]
   },
@@ -344,6 +680,18 @@
       {
         "from": "assistant",
         "value": "SELECT `债券名称`, `基金简称` FROM 基金可转债持仓明细 WHERE `持仓日期` = '20231001' AND `市值占基金资产净值比` > 0.05"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM 基金可转债持仓明细 WHERE `持仓日期` = '20231001' AND `市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM 基金可转债持仓明细 WHERE `持仓日期` = '20231001' AND `市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM 基金可转债持仓明细 WHERE `持仓日期` = '20231001' AND `市值占基金资产净值比` > 0.05;"
       }
     ]
   },
@@ -356,6 +704,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
       }
     ]
   },
@@ -368,6 +728,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, SUM(`数量`) AS `债券数量总和` FROM 基金可转债持仓明细 GROUP BY `基金代码` ORDER BY `债券数量总和` DESC"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, SUM(`数量`) AS `债券数量总和` FROM 基金可转债持仓明细 GROUP BY `基金代码` ORDER BY `债券数量总和` DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, SUM(`数量`) AS `债券数量总和` FROM 基金可转债持仓明细 GROUP BY `基金代码` ORDER BY `债券数量总和` DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, SUM(`数量`) AS `债券数量总和` FROM 基金可转债持仓明细 GROUP BY `基金代码` ORDER BY `债券数量总和` DESC;"
       }
     ]
   },
@@ -380,6 +752,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金代码`, t1.`基金简称`, t1.`报告期期末基金总份额` FROM 基金规模变动表 t1 JOIN 基金可转债持仓明细 t2 ON t1.`基金代码` = t2.`基金代码`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金代码`, t1.`基金简称`, t1.`报告期期末基金总份额` FROM 基金规模变动表 t1 JOIN 基金可转债持仓明细 t2 ON t1.`基金代码` = t2.`基金代码`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金代码`, t1.`基金简称`, t1.`报告期期末基金总份额` FROM 基金规模变动表 t1 JOIN 基金可转债持仓明细 t2 ON t1.`基金代码` = t2.`基金代码`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金代码`, t1.`基金简称`, t1.`报告期期末基金总份额` FROM 基金规模变动表 t1 JOIN 基金可转债持仓明细 t2 ON t1.`基金代码` = t2.`基金代码`;"
       }
     ]
   },
@@ -392,6 +776,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金简称`, `机构投资者持有的基金份额占总份额比例` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 ORDER BY `机构投资者持有的基金份额占总份额比例` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, MAX(`机构投资者持有的基金份额占总份额比例`) AS `最高比例` FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 GROUP BY `基金代码`, `基金简称` ORDER BY `最高比例` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, MAX(`机构投资者持有的基金份额占总份额比例`) AS `最高比例` FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 GROUP BY `基金代码`, `基金简称` ORDER BY `最高比例` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, MAX(`机构投资者持有的基金份额占总份额比例`) AS `最高比例` FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 GROUP BY `基金代码`, `基金简称` ORDER BY `最高比例` DESC LIMIT 1;"
       }
     ]
   },
@@ -404,6 +800,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `收盘价(元)` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
       }
     ]
   },
@@ -416,6 +824,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `个人投资者持有的基金份额占总份额比例` > 50"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `个人投资者持有的基金份额占总份额比例` > 50;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `个人投资者持有的基金份额占总份额比例` > 50;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `个人投资者持有的基金份额占总份额比例` > 50;"
       }
     ]
   },
@@ -428,6 +848,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `成交量(股)` FROM `A股票日行情表` WHERE `交易日` LIKE '2023%' ORDER BY `成交量(股)` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, SUM(`成交量(股)`) AS total_volume FROM `A股票日行情表` WHERE SUBSTR(`交易日`, 1, 4) = '2023' GROUP BY `股票代码` ORDER BY total_volume DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, MAX(`成交量(股)`) AS `最大成交量` FROM `A股票日行情表` WHERE SUBSTR(`交易日`, 1, 4) = '2023' GROUP BY `股票代码` ORDER BY `最大成交量` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, MAX(`成交量(股)`) AS `最大成交量` FROM `A股票日行情表` WHERE SUBSTR(`交易日`, 1, 4) = '2023' GROUP BY `股票代码` ORDER BY `最大成交量` DESC LIMIT 1;"
       }
     ]
   },
@@ -440,6 +872,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND (`机构投资者持有的基金份额占总份额比例` + `个人投资者持有的基金份额占总份额比例`) > 100"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 GROUP BY `基金代码` HAVING SUM(`机构投资者持有的基金份额占总份额比例` + `个人投资者持有的基金份额占总份额比例`) > 100;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 GROUP BY `基金代码` HAVING SUM(`机构投资者持有的基金份额占总份额比例` + `个人投资者持有的基金份额占总份额比例`) > 100;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 GROUP BY `基金代码` HAVING SUM(`机构投资者持有的基金份额占总份额比例` + `个人投资者持有的基金份额占总份额比例`) > 100;"
       }
     ]
   },
@@ -452,6 +896,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`一级行业名称`, AVG(t2.`收盘价(元)`) AS `平均收盘价` FROM `A股公司行业划分表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` AND t1.`交易日期` = t2.`交易日` WHERE t1.`行业划分标准` = '申万' AND t2.`交易日` = '20231001' GROUP BY t1.`一级行业名称`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`一级行业名称`, AVG(t2.`收盘价(元)`) AS `平均收盘价` FROM `A股公司行业划分表` t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` AND t1.`交易日期` = t2.`交易日` WHERE t1.`行业划分标准` = '申万' AND t1.`交易日期` = '20231001' GROUP BY t1.`一级行业名称`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`一级行业名称`, AVG(t2.`收盘价(元)`) AS `平均收盘价` FROM `A股公司行业划分表` t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` AND t1.`交易日期` = t2.`交易日` WHERE t1.`行业划分标准` = '申万' AND t1.`交易日期` = '20231001' GROUP BY t1.`一级行业名称`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`一级行业名称`, AVG(t2.`收盘价(元)`) AS `平均收盘价` FROM `A股公司行业划分表` t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` AND t1.`交易日期` = t2.`交易日` WHERE t1.`行业划分标准` = '申万' AND t1.`交易日期` = '20231001' GROUP BY t1.`一级行业名称`;"
       }
     ]
   },
@@ -464,6 +920,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`股票代码`, t1.`一级行业名称`, t2.`成交金额(元)` FROM `A股公司行业划分表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` AND t1.`交易日期` = t2.`交易日` WHERE t1.`二级行业名称` = '白酒' AND t2.`交易日` = '20231001'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t1.`股票名称`, t2.`成交金额(元)` FROM `A股公司行业划分表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日期` = '20231001' AND t1.`二级行业名称` = '白酒';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t1.`股票名称`, t2.`成交金额(元)` FROM `A股公司行业划分表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日期` = '20231001' AND t1.`二级行业名称` = '白酒';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t1.`股票名称`, t2.`成交金额(元)` FROM `A股公司行业划分表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日期` = '20231001' AND t1.`二级行业名称` = '白酒';"
       }
     ]
   },
@@ -476,6 +944,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`一级行业名称`, t2.`成交金额(元)` FROM `A股公司行业划分表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` AND t1.`交易日期` = t2.`交易日` WHERE t2.`交易日` = '20231001' ORDER BY t2.`成交金额(元)` DESC LIMIT 5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t2.`一级行业名称`, t1.`成交金额(元)` FROM `A股票日行情表` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日` = '20231001' ORDER BY t1.`成交金额(元)` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t2.`一级行业名称`, t1.`成交金额(元)` FROM `A股票日行情表` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日` = '20231001' ORDER BY t1.`成交金额(元)` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t2.`一级行业名称`, t1.`成交金额(元)` FROM `A股票日行情表` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日` = '20231001' ORDER BY t1.`成交金额(元)` DESC LIMIT 5;"
       }
     ]
   },
@@ -488,6 +968,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`股票代码`, ((t2.`收盘价(元)` - t2.`昨收盘(元)`) / t2.`昨收盘(元)`) * 100 AS `涨幅百分比` FROM `A股公司行业划分表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` AND t1.`交易日期` = t2.`交易日` WHERE t1.`一级行业名称` = '医药生物' AND t2.`交易日` = '20231001' ORDER BY `涨幅百分比` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, ((`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` * 100) AS increase_rate FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `一级行业名称` = '医药生物' ORDER BY increase_rate DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, ((`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` * 100) AS increase_rate FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `一级行业名称` = '医药生物' ORDER BY increase_rate DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, ((`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` * 100) AS increase_rate FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `一级行业名称` = '医药生物' ORDER BY increase_rate DESC LIMIT 1;"
       }
     ]
   },
@@ -500,6 +992,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`一级行业名称`, COUNT(*) AS `股票数量` FROM `A股公司行业划分表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` AND t1.`交易日期` = t2.`交易日` WHERE t2.`交易日` = '20231001' GROUP BY t1.`一级行业名称` ORDER BY `股票数量` DESC"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `一级行业名称`, COUNT(*) AS stock_count FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' GROUP BY `一级行业名称` ORDER BY stock_count DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `一级行业名称`, COUNT(*) AS `股票数量` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' GROUP BY `一级行业名称` ORDER BY `股票数量` DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `一级行业名称`, COUNT(*) AS `股票数量` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' GROUP BY `一级行业名称` ORDER BY `股票数量` DESC;"
       }
     ]
   },
@@ -512,6 +1016,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `收盘价(元)` FROM `港股票日行情表` WHERE `交易日` = '20231001' ORDER BY `收盘价(元)` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, MAX(`收盘价(元)`) AS `最高收盘价` FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY `最高收盘价` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, MAX(`收盘价(元)`) AS `最高收盘价` FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY `最高收盘价` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, MAX(`收盘价(元)`) AS `最高收盘价` FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY `最高收盘价` DESC LIMIT 1;"
       }
     ]
   },
@@ -524,6 +1040,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `成交量(股)` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `成交量(股)` > 1000000"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `成交量(股)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `成交量(股)` > 1000000;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `成交量(股)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `成交量(股)` > 1000000;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `成交量(股)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `成交量(股)` > 1000000;"
       }
     ]
   },
@@ -536,6 +1064,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, (`报告期期末基金总份额` - `报告期期初基金总份额`) / `报告期期初基金总份额` * 100 AS `增加比例` FROM `基金规模变动表` WHERE `定期报告所属年度` = 2023 AND `报告期期末基金总份额` > `报告期期初基金总份额`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, (`报告期期末基金总份额` - `报告期期初基金总份额`) / `报告期期初基金总份额` AS increase_ratio FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 AND (`报告期期末基金总份额` - `报告期期初基金总份额`) > 0;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, (`报告期期末基金总份额` - `报告期期初基金总份额`) / `报告期期初基金总份额` AS increase_ratio FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 AND (`报告期期末基金总份额` - `报告期期初基金总份额`) > 0;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, (`报告期期末基金总份额` - `报告期期初基金总份额`) / `报告期期初基金总份额` AS increase_ratio FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 AND (`报告期期末基金总份额` - `报告期期初基金总份额`) > 0;"
       }
     ]
   },
@@ -548,6 +1088,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `机构投资者持有的基金份额占总份额比例` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `机构投资者持有的基金份额占总份额比例` > 50"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `机构投资者持有的基金份额占总份额比例` FROM `基金份额持有人结构` WHERE SUBSTR(`定期报告所属年度`, 1, 4) = '2023' AND `机构投资者持有的基金份额占总份额比例` > 50;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `机构投资者持有的基金份额占总份额比例` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `机构投资者持有的基金份额占总份额比例` > 50;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `机构投资者持有的基金份额占总份额比例` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `机构投资者持有的基金份额占总份额比例` > 50;"
       }
     ]
   },
@@ -560,6 +1112,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`股票代码` FROM `港股票日行情表` t1 JOIN `A股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日` = '20231001' AND t2.`交易日` = '20231001' AND t1.`收盘价(元)` = t2.`收盘价(元)`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码` FROM `港股票日行情表` t1 INNER JOIN `A股票日行情表` t2 ON t1.`收盘价(元)` = t2.`收盘价(元)` WHERE t1.`交易日` = '20231001' AND t2.`交易日` = '20231001';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码` FROM `港股票日行情表` t1 JOIN `A股票日行情表` t2 ON t1.`收盘价(元)` = t2.`收盘价(元)` WHERE t1.`交易日` = '20231001' AND t2.`交易日` = '20231001';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码` FROM `港股票日行情表` t1 JOIN `A股票日行情表` t2 ON t1.`收盘价(元)` = t2.`收盘价(元)` WHERE t1.`交易日` = '20231001' AND t2.`交易日` = '20231001';"
       }
     ]
   },
@@ -571,6 +1135,18 @@
       },
       {
         "from": "assistant",
+        "value": "SELECT `基金全称`, `基金简称` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1.5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金简称` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1.5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `基金简称` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1.5;"
+      },
+      {
+        "from": "predict",
         "value": "SELECT `基金全称`, `基金简称` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1.5;"
       }
     ]
@@ -584,6 +1160,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `收盘价(元)` FROM 港股票日行情表 WHERE `交易日` = '20231001' ORDER BY `收盘价(元)` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, MAX(`收盘价(元)`) AS `最高收盘价` FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY `最高收盘价` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, MAX(`收盘价(元)`) AS `最高收盘价` FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY `最高收盘价` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, MAX(`收盘价(元)`) AS `最高收盘价` FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY `最高收盘价` DESC LIMIT 1;"
       }
     ]
   },
@@ -596,6 +1184,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金代码`, t1.`债券名称` FROM 基金债券持仓明细 t1 WHERE t1.`持债市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `债券名称` FROM `基金债券持仓明细` WHERE `持债市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `债券名称` FROM `基金债券持仓明细` WHERE `持债市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `债券名称` FROM `基金债券持仓明细` WHERE `持债市值占基金资产净值比` > 0.05;"
       }
     ]
   },
@@ -608,6 +1208,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金类型`, COUNT(*) AS `数量` FROM 基金基本信息 WHERE `管理人` = '华夏基金' AND `托管人` = '工商银行' GROUP BY `基金类型`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金类型`, COUNT(*) AS count FROM 基金基本信息 WHERE `管理人` = '华夏基金' AND `托管人` = '工商银行' GROUP BY `基金类型`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金类型`, COUNT(*) AS count FROM 基金基本信息 WHERE `管理人` = '华夏基金' AND `托管人` = '工商银行' GROUP BY `基金类型`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金类型`, COUNT(*) AS count FROM 基金基本信息 WHERE `管理人` = '华夏基金' AND `托管人` = '工商银行' GROUP BY `基金类型`;"
       }
     ]
   },
@@ -620,6 +1232,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, MAX(`成交量(股)`) AS `最高成交量` FROM 港股票日行情表 WHERE `交易日` BETWEEN '20230701' AND '20230930' GROUP BY `股票代码` ORDER BY `最高成交量` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, SUM(`成交量(股)`) AS total_volume FROM `港股票日行情表` WHERE `交易日` BETWEEN '20230701' AND '20230930' GROUP BY `股票代码` ORDER BY total_volume DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, SUM(`成交量(股)`) AS total_volume FROM `港股票日行情表` WHERE `交易日` BETWEEN '20230701' AND '20230930' GROUP BY `股票代码` ORDER BY total_volume DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, SUM(`成交量(股)`) AS total_volume FROM `港股票日行情表` WHERE `交易日` BETWEEN '20230701' AND '20230930' GROUP BY `股票代码` ORDER BY total_volume DESC LIMIT 1;"
       }
     ]
   },
@@ -632,6 +1256,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金简称`, `公告日期` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `机构投资者持有的基金份额占总份额比例` > 50.0"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `公告日期` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `机构投资者持有的基金份额占总份额比例` > 50;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `公告日期` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `机构投资者持有的基金份额占总份额比例` > 50;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `公告日期` FROM `基金份额持有人结构` WHERE `定期报告所属年度` = 2023 AND `机构投资者持有的基金份额占总份额比例` > 50;"
       }
     ]
   },
@@ -644,6 +1280,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金简称`, `持债市值` FROM `基金债券持仓明细` WHERE `第N大重仓股` = 3 AND `持仓日期` LIKE '2023%'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `持债市值` FROM `基金债券持仓明细` WHERE `持仓日期` LIKE '2023%' AND `第N大重仓股` = 3;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `持债市值` FROM `基金债券持仓明细` WHERE `持仓日期` LIKE '2023%' AND `第N大重仓股` = 3;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `持债市值` FROM `基金债券持仓明细` WHERE `持仓日期` LIKE '2023%' AND `第N大重仓股` = 3;"
       }
     ]
   },
@@ -656,6 +1304,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `机构投资者持有的基金份额占总份额比例` > 40.0 AND `个人投资者持有的基金份额占总份额比例` > 40.0"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `机构投资者持有的基金份额占总份额比例` > 40 AND `个人投资者持有的基金份额占总份额比例` > 40;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `机构投资者持有的基金份额占总份额比例` > 40 AND `个人投资者持有的基金份额占总份额比例` > 40;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM `基金份额持有人结构` WHERE `机构投资者持有的基金份额占总份额比例` > 40 AND `个人投资者持有的基金份额占总份额比例` > 40;"
       }
     ]
   },
@@ -668,6 +1328,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金简称`, `债券名称` FROM `基金债券持仓明细` ORDER BY `持债市值占基金资产净值比` DESC LIMIT 5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `债券名称` FROM `基金债券持仓明细` ORDER BY `持债市值占基金资产净值比` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `债券名称` FROM `基金债券持仓明细` ORDER BY `持债市值占基金资产净值比` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `债券名称` FROM `基金债券持仓明细` ORDER BY `持债市值占基金资产净值比` DESC LIMIT 5;"
       }
     ]
   },
@@ -680,6 +1352,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金代码`, t1.`基金简称` FROM `基金份额持有人结构` t1 JOIN `基金份额持有人结构` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 AND t2.`定期报告所属年度` = 2022 AND (t1.`机构投资者持有的基金份额占总份额比例` - t2.`机构投资者持有的基金份额占总份额比例`) > 10.0"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 AND (`机构投资者持有的基金份额占总份额比例` - LAG(`机构投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`)) > 0.1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 AND (`机构投资者持有的基金份额占总份额比例` - LAG(`机构投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`)) > 0.1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `基金简称` FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 AND (`机构投资者持有的基金份额占总份额比例` - LAG(`机构投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`)) > 0.1;"
       }
     ]
   },
@@ -692,6 +1376,18 @@
       {
         "from": "assistant",
         "value": "SELECT `债券名称`, `持债市值占基金资产净值比` FROM `基金债券持仓明细` WHERE `持仓日期` LIKE '202309%' AND `第N大重仓股` <= 5 ORDER BY `第N大重仓股`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `持债市值占基金资产净值比` FROM `基金可转债持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' AND `第N大重仓股` <= 5 ORDER BY `第N大重仓股`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `持债市值占基金资产净值比` FROM `基金可转债持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' AND `第N大重仓股` <= 5 ORDER BY `第N大重仓股`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `持债市值占基金资产净值比` FROM `基金可转债持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' AND `第N大重仓股` <= 5 ORDER BY `第N大重仓股`;"
       }
     ]
   },
@@ -704,6 +1400,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `成交金额(元)` FROM `港股票日行情表` WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, SUM(`成交金额(元)`) AS total_amount FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY total_amount DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, SUM(`成交金额(元)`) AS total_amount FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY total_amount DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, SUM(`成交金额(元)`) AS total_amount FROM `港股票日行情表` WHERE `交易日` = '20231001' GROUP BY `股票代码` ORDER BY total_amount DESC LIMIT 1;"
       }
     ]
   },
@@ -716,6 +1424,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票名称`, `所属国家(地区)` FROM `基金股票持仓明细` WHERE `持仓日期` LIKE '202309%' AND `市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票名称`, `所在国家(地区)` FROM `基金股票持仓明细` WHERE `持仓日期` = '20230930' AND `市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票名称`, `所在国家(地区)` FROM `基金股票持仓明细` WHERE `持仓日期` = '20230930' AND `市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票名称`, `所在国家(地区)` FROM `基金股票持仓明细` WHERE `持仓日期` = '20230930' AND `市值占基金资产净值比` > 0.05;"
       }
     ]
   },
@@ -728,6 +1448,18 @@
       {
         "from": "assistant",
         "value": "SELECT `债券名称` AS `投资标的名称`, `持债市值占基金资产净值比` AS `占比` FROM `基金债券持仓明细` WHERE `持仓日期` LIKE '202309%' UNION ALL SELECT `股票名称`, `市值占基金资产净值比` FROM `基金股票持仓明细` WHERE `持仓日期` LIKE '202309%' ORDER BY `占比` DESC LIMIT 3;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称` AS `投资标的名称`, `持债市值占基金资产净值比` FROM `基金债券持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `持债市值占基金资产净值比` DESC LIMIT 3 UNION ALL SELECT `股票名称` AS `投资标的名称`, `市值占基金资产净值比` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `市值占基金资产净值比` DESC LIMIT 3;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称` AS `投资标的`, `持债市值占基金资产净值比` AS `占比` FROM `基金债券持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `占比` DESC LIMIT 3 UNION ALL SELECT `股票名称` AS `投资标的`, `市值占基金资产净值比` AS `占比` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `占比` DESC LIMIT 3;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称` AS `投资标的`, `持债市值占基金资产净值比` AS `占比` FROM `基金债券持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `占比` DESC LIMIT 3 UNION ALL SELECT `股票名称` AS `投资标的`, `市值占基金资产净值比` AS `占比` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230701' AND '20230930' ORDER BY `占比` DESC LIMIT 3;"
       }
     ]
   },
@@ -740,6 +1472,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, ((`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)`) * 100 AS `涨幅百分比` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND ((`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)`) > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, (`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` * 100 AS `涨幅百分比` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND (`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` * 100 > 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, (`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` * 100 AS `涨幅百分比` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND (`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` * 100 > 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, (`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` * 100 AS `涨幅百分比` FROM `港股票日行情表` WHERE `交易日` = '20231001' AND (`收盘价(元)` - `昨收盘(元)`) / `昨收盘(元)` * 100 > 5;"
       }
     ]
   },
@@ -752,6 +1496,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`基金简称`, t2.`机构投资者持有的基金份额占总份额比例` FROM 基金份额持有人结构 t2 WHERE t2.`定期报告所属年度` = 2023 AND t2.`报告类型` = '第一季度报告' ORDER BY t2.`机构投资者持有的基金份额占总份额比例` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `机构投资者持有的基金份额占总份额比例` FROM 基金份额持有人结构 WHERE `截止日期` BETWEEN '2023-01-01 00:00:00' AND '2023-03-31 00:00:00' ORDER BY `机构投资者持有的基金份额占总份额比例` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `机构投资者持有的基金份额占总份额比例` FROM 基金份额持有人结构 WHERE `截止日期` BETWEEN '2023-01-01 00:00:00' AND '2023-03-31 00:00:00' ORDER BY `机构投资者持有的基金份额占总份额比例` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, MAX(`机构投资者持有的基金份额占总份额比例`) AS `最高比例` FROM 基金份额持有人结构 WHERE `截止日期` BETWEEN '2023-01-01 00:00:00' AND '2023-03-31 00:00:00' GROUP BY `基金代码`, `基金简称` ORDER BY `最高比例` DESC LIMIT 1;"
       }
     ]
   },
@@ -764,6 +1520,18 @@
       {
         "from": "assistant",
         "value": "SELECT t4.`股票代码`, t1.`收盘价(元)` FROM A股公司行业划分表 t4 JOIN 港股票日行情表 t1 ON t4.`股票代码` = t1.`股票代码` WHERE t4.`行业划分标准` = '制造业' AND t1.`交易日` = '20231001'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t2.`收盘价(元)` FROM `A股公司行业划分表` t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`一级行业名称` = '制造业' AND t1.`交易日期` = '20231001' AND t2.`交易日` = '20231001';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t2.`收盘价(元)` FROM `A股公司行业划分表` t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`一级行业名称` = '制造业' AND t1.`交易日期` = '20231001' AND t2.`交易日` = '20231001';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t2.`收盘价(元)` FROM `A股公司行业划分表` t1 JOIN `港股票日行情表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`一级行业名称` = '制造业' AND t1.`交易日期` = '20231001' AND t2.`交易日` = '20231001';"
       }
     ]
   },
@@ -776,6 +1544,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`基金代码`, t3.`资产净值` FROM 基金份额持有人结构 t2 JOIN 基金日行情表 t3 ON t2.`基金代码` = t3.`基金代码` WHERE t2.`机构投资者持有的基金份额占总份额比例` > 50 AND t2.`定期报告所属年度` = 2023"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金代码`, t2.`资产净值` FROM `基金份额持有人结构` t1 JOIN `基金日行情表` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 AND t1.`机构投资者持有的基金份额占总份额比例` > 50;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金代码`, t2.`资产净值` FROM `基金份额持有人结构` t1 JOIN `基金日行情表` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 AND t1.`机构投资者持有的基金份额占总份额比例` > 50;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金代码`, t2.`资产净值` FROM `基金份额持有人结构` t1 JOIN `基金日行情表` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 AND t1.`机构投资者持有的基金份额占总份额比例` > 50;"
       }
     ]
   },
@@ -788,6 +1568,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`基金简称` FROM 基金份额持有人结构 t2 WHERE t2.`定期报告所属年度` = 2023 AND t2.`报告类型` = '第二季度报告' ORDER BY (t2.`个人投资者持有的基金份额占总份额比例` - (SELECT t1.`个人投资者持有的基金份额占总份额比例` FROM 基金份额持有人结构 t1 WHERE t1.`基金代码` = t2.`基金代码` AND t1.`报告类型` = '第一季度报告' AND t1.`定期报告所属年度` = 2023)) DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称` FROM (SELECT `基金代码`, `基金简称`, `个人投资者持有的基金份额占总份额比例`, ROW_NUMBER() OVER (ORDER BY (`个人投资者持有的基金份额占总份额比例` - LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`)) DESC) AS rank FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 AND `报告类型` LIKE '%第二季度%') t WHERE rank = 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称` FROM (SELECT `基金代码`, `基金简称`, `个人投资者持有的基金份额占总份额比例`, ROW_NUMBER() OVER (PARTITION BY `基金代码` ORDER BY (`个人投资者持有的基金份额占总份额比例` - LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`)) DESC) AS rank FROM 基金份额持有人结构 WHERE strftime('%Y-%m', `截止日期`) BETWEEN '2023-04' AND '2023-06') t WHERE rank = 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称` FROM (SELECT `基金代码`, `基金简称`, `个人投资者持有的基金份额占总份额比例`, ROW_NUMBER() OVER (ORDER BY (`个人投资者持有的基金份额占总份额比例` - LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`)) DESC) AS rank FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 AND `截止日期` BETWEEN '2023-04-01' AND '2023-06-30') t WHERE rank = 1;"
       }
     ]
   },
@@ -800,6 +1592,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`股票代码`, t4.`一级行业名称` FROM 港股票日行情表 t1 JOIN A股公司行业划分表 t4 ON t1.`股票代码` = t4.`股票代码` WHERE t1.`交易日` = '20231001' ORDER BY t1.`成交金额(元)` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t2.`一级行业名称` FROM `港股票日行情表` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日` = '20231001' ORDER BY t1.`成交金额(元)` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t2.`一级行业名称` FROM `港股票日行情表` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日` = '20231001' ORDER BY t1.`成交金额(元)` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票代码`, t2.`一级行业名称` FROM `港股票日行情表` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`交易日` = '20231001' ORDER BY t1.`成交金额(元)` DESC LIMIT 1;"
       }
     ]
   },
@@ -812,6 +1616,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '科技'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '科技';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '科技';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '科技';"
       }
     ]
   },
@@ -824,6 +1640,18 @@
       {
         "from": "assistant",
         "value": "SELECT AVG(`单位净值`) FROM `基金日行情表` WHERE `基金代码` = '000001' AND `交易日期` BETWEEN '20231001' AND '20231031'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT AVG(`单位净值`) AS `平均单位净值` FROM 基金日行情表 WHERE `基金代码` = '000001' AND `交易日期` LIKE '202310%';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT AVG(`单位净值`) AS `平均单位净值` FROM 基金日行情表 WHERE `基金代码` = '000001' AND `交易日期` LIKE '202310%';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT AVG(`单位净值`) AS `平均单位净值` FROM 基金日行情表 WHERE `基金代码` = '000001' AND `交易日期` LIKE '202310%';"
       }
     ]
   },
@@ -836,6 +1664,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `一级行业名称` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `二级行业名称` LIKE '%医药%'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `一级行业名称` FROM A股公司行业划分表 WHERE `交易日期` = '20231001' AND `二级行业名称` LIKE '%医药%';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `一级行业名称` FROM A股公司行业划分表 WHERE `交易日期` = '20231001' AND `二级行业名称` LIKE '%医药%';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `一级行业名称` FROM A股公司行业划分表 WHERE `交易日期` = '20231001' AND `二级行业名称` LIKE '%医药%';"
       }
     ]
   },
@@ -848,6 +1688,18 @@
       {
         "from": "assistant",
         "value": "SELECT SUM(`单位净值`) FROM `基金日行情表` WHERE `交易日期` = '20231001'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT SUM(`单位净值`) AS `总和` FROM 基金日行情表 WHERE `交易日期` = '20231001';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT SUM(`单位净值`) AS `总和` FROM 基金日行情表 WHERE `交易日期` = '20231001';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT SUM(`单位净值`) AS `总和` FROM 基金日行情表 WHERE `交易日期` = '20231001';"
       }
     ]
   },
@@ -860,6 +1712,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '金融' AND `二级行业名称` = '银行'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '金融' AND `二级行业名称` = '银行';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '金融' AND `二级行业名称` = '银行';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码` FROM `A股公司行业划分表` WHERE `交易日期` = '20231001' AND `一级行业名称` = '金融' AND `二级行业名称` = '银行';"
       }
     ]
   },
@@ -872,6 +1736,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票名称`, `市值占基金资产净值比` FROM `基金股票持仓明细` WHERE `持仓日期` = '20231001' ORDER BY `市值占基金资产净值比` DESC LIMIT 5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票名称`, `市值占基金资产净值比` FROM 基金股票持仓明细 WHERE `持仓日期` = '20231001' ORDER BY `市值占基金资产净值比` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票名称`, `市值占基金资产净值比` FROM 基金股票持仓明细 WHERE `持仓日期` = '20231001' ORDER BY `市值占基金资产净值比` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票名称`, `市值占基金资产净值比` FROM 基金股票持仓明细 WHERE `持仓日期` = '20231001' ORDER BY `市值占基金资产净值比` DESC LIMIT 5;"
       }
     ]
   },
@@ -884,6 +1760,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `交易日期` FROM `基金日行情表` ORDER BY (`单位净值` - LAG(`单位净值`, 1) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`)) DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "WITH RankedFunds AS (SELECT `基金代码`, `交易日期`, `单位净值`, (`单位净值` - LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`)) / LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`) AS growth_rate FROM 基金日行情表) SELECT `基金代码`, `交易日期` FROM RankedFunds WHERE growth_rate IS NOT NULL AND growth_rate > 0 ORDER BY growth_rate DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "WITH RankedFunds AS (SELECT `基金代码`, `交易日期`, `单位净值`, (`单位净值` - LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`)) / LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`) AS growth_rate FROM 基金日行情表) SELECT `基金代码`, `交易日期` FROM RankedFunds WHERE growth_rate IS NOT NULL AND growth_rate > 0 ORDER BY growth_rate DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "WITH RankedFunds AS (SELECT `基金代码`, `交易日期`, `单位净值`, (`单位净值` - LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`)) / LAG(`单位净值`) OVER (PARTITION BY `基金代码` ORDER BY `交易日期`) AS growth_rate FROM 基金日行情表) SELECT `基金代码`, `交易日期` FROM RankedFunds WHERE growth_rate IS NOT NULL AND growth_rate > 0 ORDER BY growth_rate DESC LIMIT 1;"
       }
     ]
   },
@@ -896,6 +1784,18 @@
       {
         "from": "assistant",
         "value": "SELECT `债券名称`, `基金简称` FROM `基金债券持仓明细` WHERE `持债市值占基金资产净值比` > 0.05"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM 基金债券持仓明细 WHERE `持债市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM 基金债券持仓明细 WHERE `持债市值占基金资产净值比` > 0.05;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM 基金债券持仓明细 WHERE `持债市值占基金资产净值比` > 0.05;"
       }
     ]
   },
@@ -908,6 +1808,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金代码`, t1.`持仓日期`, SUM(t1.`市值`) + SUM(t2.`持债市值`) AS `总市值` FROM `基金股票持仓明细` t1 JOIN `基金债券持仓明细` t2 ON t1.`基金代码` = t2.`基金代码` AND t1.`持仓日期` = t2.`持仓日期` GROUP BY t1.`基金代码`, t1.`持仓日期`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金代码`, t1.`基金简称`, t1.`持仓日期`, (t1.`市值` + COALESCE(t2.`持债市值`, 0)) AS `持仓总市值` FROM 基金股票持仓明细 t1 LEFT JOIN 基金债券持仓明细 t2 ON t1.`基金代码` = t2.`基金代码` AND t1.`持仓日期` = t2.`持仓日期`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金代码`, t1.`基金简称`, t1.`持仓日期`, (t1.`市值` + COALESCE(t2.`持债市值`, 0)) AS `持仓总市值` FROM 基金股票持仓明细 t1 LEFT JOIN 基金债券持仓明细 t2 ON t1.`基金代码` = t2.`基金代码` AND t1.`持仓日期` = t2.`持仓日期`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金代码`, t1.`基金简称`, t1.`持仓日期`, (t1.`市值` + COALESCE(t2.`持债市值`, 0)) AS `持仓总市值` FROM 基金股票持仓明细 t1 LEFT JOIN 基金债券持仓明细 t2 ON t1.`基金代码` = t2.`基金代码` AND t1.`持仓日期` = t2.`持仓日期`;"
       }
     ]
   },
@@ -920,6 +1832,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `交易日期`, `资产净值` FROM `基金日行情表` ORDER BY `资产净值` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `交易日期`, `资产净值` FROM 基金日行情表 ORDER BY `资产净值` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `交易日期`, `资产净值` FROM 基金日行情表 ORDER BY `资产净值` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `交易日期`, `资产净值` FROM 基金日行情表 ORDER BY `资产净值` DESC LIMIT 1;"
       }
     ]
   },
@@ -932,6 +1856,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `基金简称`, `债券名称`, `持债市值占基金资产净值比` FROM 基金债券持仓明细 WHERE `持仓日期` = '20231001' ORDER BY `持债市值占基金资产净值比` DESC LIMIT 5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `债券名称` FROM `基金债券持仓明细` WHERE `持仓日期` = '20231001' ORDER BY `持债市值占基金资产净值比` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `债券名称` FROM 基金债券持仓明细 WHERE `持仓日期` = '20231001' ORDER BY `持债市值占基金资产净值比` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `债券名称` FROM `基金债券持仓明细` WHERE `持仓日期` = '20231001' ORDER BY `持债市值占基金资产净值比` DESC LIMIT 5;"
       }
     ]
   },
@@ -944,6 +1880,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `收盘价(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM `A股票日行情表` WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM `A股票日行情表` WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `收盘价(元)` FROM `A股票日行情表` WHERE `交易日` = '20231001' ORDER BY `成交量(股)` DESC LIMIT 1;"
       }
     ]
   },
@@ -956,6 +1904,18 @@
       {
         "from": "assistant",
         "value": "SELECT `债券名称`, `基金简称` FROM 基金债券持仓明细 WHERE `持仓日期` = '20231001' AND `持债数量` > 1000000 AND `第N大重仓股` = 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM `基金债券持仓明细` WHERE `持仓日期` = '20231001' AND `持债数量` > 1000000 AND `第N大重仓股` = 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM `基金债券持仓明细` WHERE `持仓日期` = '20231001' AND `持债数量` > 1000000 AND `第N大重仓股` = 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券名称`, `基金简称` FROM `基金债券持仓明细` WHERE `持仓日期` = '20231001' AND `持债数量` > 1000000 AND `第N大重仓股` = 1;"
       }
     ]
   },
@@ -968,6 +1928,18 @@
       {
         "from": "assistant",
         "value": "SELECT `股票代码`, `成交金额(元)` FROM A股票日行情表 WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `成交金额(元)` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `成交金额(元)` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `成交金额(元)` FROM `A股票日行情表` WHERE `交易日` = '20231001' AND `收盘价(元)` > `今开盘(元)`;"
       }
     ]
   },
@@ -980,6 +1952,18 @@
       {
         "from": "assistant",
         "value": "SELECT `债券类型`, AVG(`持债市值占基金资产净值比`) AS `平均持债市值占比` FROM 基金债券持仓明细 WHERE `持仓日期` = '20231001' GROUP BY `债券类型` ORDER BY MAX(`持债市值`) DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券类型`, AVG(`持债市值占基金资产净值比`) AS avg_ratio FROM 基金债券持仓明细 WHERE `持仓日期` = '20231001' GROUP BY `债券类型` ORDER BY avg_ratio DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券类型`, AVG(`持债市值占基金资产净值比`) AS avg_ratio FROM 基金债券持仓明细 WHERE `持仓日期` = '20231001' GROUP BY `债券类型` ORDER BY avg_ratio DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `债券类型`, AVG(`持债市值占基金资产净值比`) AS avg_ratio FROM 基金债券持仓明细 WHERE `持仓日期` = '20231001' GROUP BY `债券类型` ORDER BY avg_ratio DESC LIMIT 1;"
       }
     ]
   },
@@ -992,6 +1976,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`基金全称`, t2.`管理人`, t1.`机构投资者持有的基金份额占总份额比例` FROM `基金份额持有人结构` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 ORDER BY t1.`机构投资者持有的基金份额占总份额比例` DESC LIMIT 5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金全称`, t1.`管理人` FROM `基金份额持有人结构` t2 JOIN `基金基本信息` t1 ON t2.`基金代码` = t1.`基金代码` WHERE t2.`定期报告所属年度` = 2023 AND t2.`机构投资者持有的基金份额占总份额比例` IS NOT NULL ORDER BY t2.`机构投资者持有的基金份额占总份额比例` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金全称`, t1.`管理人` FROM `基金份额持有人结构` t2 JOIN `基金基本信息` t1 ON t2.`基金代码` = t1.`基金代码` WHERE t2.`定期报告所属年度` = 2023 AND t2.`机构投资者持有的基金份额占总份额比例` IS NOT NULL ORDER BY t2.`机构投资者持有的基金份额占总份额比例` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金全称`, t1.`管理人` FROM `基金份额持有人结构` t2 JOIN `基金基本信息` t1 ON t2.`基金代码` = t1.`基金代码` WHERE t2.`定期报告所属年度` = 2023 AND t2.`机构投资者持有的基金份额占总份额比例` IS NOT NULL ORDER BY t2.`机构投资者持有的基金份额占总份额比例` DESC LIMIT 5;"
       }
     ]
   },
@@ -1004,6 +2000,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金简称`, t2.`基金类型` FROM `基金份额持有人结构` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t1.`定期报告所属年度` = 2023 AND t1.`个人投资者持有的基金份额` > t1.`机构投资者持有的基金份额`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `基金类型` FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 AND `个人投资者持有的基金份额` > `机构投资者持有的基金份额`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `基金类型` FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 AND `个人投资者持有的基金份额` > `机构投资者持有的基金份额`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金简称`, `基金类型` FROM 基金份额持有人结构 WHERE `定期报告所属年度` = 2023 AND `个人投资者持有的基金份额` > `机构投资者持有的基金份额`;"
       }
     ]
   },
@@ -1016,6 +2024,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金全称`, `托管人` FROM `基金基本信息` WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1.0 ORDER BY `成立日期` DESC"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `托管人` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1 ORDER BY `成立日期` DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `托管人` FROM `基金基本信息` WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1 ORDER BY `成立日期` DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `托管人` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) < 1 ORDER BY `成立日期` DESC;"
       }
     ]
   },
@@ -1028,6 +2048,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`基金类型`, AVG(t1.`机构投资者持有的基金份额占总份额比例`) AS `平均机构持有比例` FROM `基金份额持有人结构` t1 JOIN `基金基本信息` t2 ON t1.`基金代码` = t2.`基金代码` GROUP BY t2.`基金类型`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金类型`, AVG(`机构投资者持有的基金份额占总份额比例`) AS `平均比例` FROM 基金份额持有人结构 GROUP BY `基金类型`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金类型`, AVG(`机构投资者持有的基金份额占总份额比例`) AS `平均比例` FROM 基金份额持有人结构 GROUP BY `基金类型`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金类型`, AVG(`机构投资者持有的基金份额占总份额比例`) AS `平均比例` FROM 基金份额持有人结构 GROUP BY `基金类型`;"
       }
     ]
   },
@@ -1040,6 +2072,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金简称`, (MAX(t1.`个人投资者持有的基金份额占总份额比例`) - MIN(t1.`个人投资者持有的基金份额占总份额比例`)) AS `增长比例` FROM `基金份额持有人结构` t1 WHERE t1.`定期报告所属年度` = 2023 AND t1.`报告类型` = '年报' GROUP BY t1.`基金代码`, t1.`基金简称` ORDER BY `增长比例` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "WITH GrowthRates AS (SELECT `基金代码`, `基金简称`, `个人投资者持有的基金份额占总份额比例` - LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`) AS growth_rate FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 AND `报告类型` = '年报') SELECT `基金代码`, `基金简称`, growth_rate FROM GrowthRates ORDER BY growth_rate DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "WITH GrowthRates AS (SELECT `基金代码`, `基金简称`, (`个人投资者持有的基金份额占总份额比例` - LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`)) / LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`) AS growth_rate FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 AND `报告类型` = '年报') SELECT `基金代码`, `基金简称`, growth_rate * 100 AS `增长比例` FROM GrowthRates ORDER BY growth_rate DESC LIMIT 1;"
+      },
+      {
+        "from": "predict",
+        "value": "WITH GrowthRates AS (SELECT `基金代码`, `基金简称`, (`个人投资者持有的基金份额占总份额比例` - LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`)) / LAG(`个人投资者持有的基金份额占总份额比例`, 1) OVER (PARTITION BY `基金代码` ORDER BY `截止日期`) AS growth_rate FROM 基金规模变动表 WHERE `定期报告所属年度` = 2023 AND `报告类型` = '年报') SELECT `基金代码`, `基金简称`, growth_rate * 100 AS `增长比例` FROM GrowthRates ORDER BY growth_rate DESC LIMIT 1;"
       }
     ]
   },
@@ -1052,6 +2096,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`股票名称`, t1.`市值占基金资产净值比`, t2.`一级行业名称` FROM `基金股票持仓明细` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`持仓日期` LIKE '202307%' ORDER BY t1.`市值占基金资产净值比` DESC LIMIT 5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `股票名称`, `一级行业名称` FROM 基金股票持仓明细 WHERE SUBSTR(`持仓日期`, 1, 7) = '202309' ORDER BY `市值占基金资产净值比` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `股票名称`, `一级行业名称` FROM 基金股票持仓明细 WHERE SUBSTR(`持仓日期`, 1, 7) = '202309' ORDER BY `市值占基金资产净值比` DESC LIMIT 5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `股票名称`, `一级行业名称` FROM 基金股票持仓明细 WHERE SUBSTR(`持仓日期`, 1, 7) = '202309' ORDER BY `市值占基金资产净值比` DESC LIMIT 5;"
       }
     ]
   },
@@ -1064,6 +2120,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`股票名称`, t1.`市值` FROM `基金股票持仓明细` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`持仓日期` LIKE '202304%' AND t2.`一级行业名称` = '信息技术' ORDER BY t1.`市值` DESC"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `股票名称`, `市值` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230401' AND '20230630' AND `一级行业名称` = '信息技术' ORDER BY `市值` DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `股票名称`, `市值` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230401' AND '20230630' AND `一级行业名称` = '信息技术' ORDER BY `市值` DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `股票代码`, `股票名称`, `市值` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230401' AND '20230630' AND `一级行业名称` = '信息技术' ORDER BY `市值` DESC;"
       }
     ]
   },
@@ -1076,6 +2144,18 @@
       {
         "from": "assistant",
         "value": "SELECT t2.`二级行业名称`, t1.`市值占基金资产净值比` FROM `基金股票持仓明细` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`持仓日期` LIKE '202301%' AND t1.`第N大重仓股` = 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `二级行业名称`, `市值占基金资产净值比` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230101' AND '20230331' AND `第N大重仓股` = 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `二级行业名称`, `市值占基金资产净值比` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230101' AND '20230331' AND `第N大重仓股` = 1;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `二级行业名称`, `市值占基金资产净值比` FROM `基金股票持仓明细` WHERE `持仓日期` BETWEEN '20230101' AND '20230331' AND `第N大重仓股` = 1;"
       }
     ]
   },
@@ -1088,6 +2168,18 @@
       {
         "from": "assistant",
         "value": "SELECT SUBSTR(t1.`持仓日期`, 1, 6) AS 季度, COUNT(*) AS 股票数量 FROM `基金股票持仓明细` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t2.`一级行业名称` = '医药生物' AND t1.`持仓日期` LIKE '2023%' GROUP BY 季度"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT SUBSTR(`持仓日期`, 1, 7) AS `季度`, COUNT(*) AS `股票数量` FROM `基金股票持仓明细` WHERE `第N大重仓股` IS NOT NULL AND `一级行业名称` = '医药生物' GROUP BY `季度`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT SUBSTR(`持仓日期`, 1, 7) AS `季度`, COUNT(*) AS `股票数量` FROM `基金股票持仓明细` WHERE `第N大重仓股` IS NOT NULL AND `一级行业名称` = '医药生物' GROUP BY `季度`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT SUBSTR(`持仓日期`, 1, 7) AS `季度`, COUNT(*) AS `股票数量` FROM `基金股票持仓明细` WHERE `第N大重仓股` IS NOT NULL AND `一级行业名称` = '医药生物' GROUP BY `季度`;"
       }
     ]
   },
@@ -1100,6 +2192,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`股票名称`, t1.`数量`, t2.`一级行业名称`, t2.`二级行业名称` FROM `基金股票持仓明细` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`持仓日期` LIKE '202310%' ORDER BY t1.`市值` DESC LIMIT 10"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票名称`, t1.`数量`, t2.`一级行业名称`, t2.`二级行业名称` FROM `基金股票持仓明细` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`持仓日期` BETWEEN '20231001' AND '20231231' ORDER BY t1.`市值` DESC LIMIT 10;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票名称`, t1.`数量`, t2.`一级行业名称`, t2.`二级行业名称` FROM `基金股票持仓明细` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`持仓日期` BETWEEN '20231001' AND '20231231' ORDER BY t1.`市值` DESC LIMIT 10;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`股票名称`, t1.`数量`, t2.`一级行业名称`, t2.`二级行业名称` FROM `基金股票持仓明细` t1 JOIN `A股公司行业划分表` t2 ON t1.`股票代码` = t2.`股票代码` WHERE t1.`持仓日期` BETWEEN '20231001' AND '20231231' ORDER BY t1.`市值` DESC LIMIT 10;"
       }
     ]
   },
@@ -1112,6 +2216,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金代码`, t1.`基金全称`, t2.`单位净值`, t2.`复权单位净值` FROM `基金基本信息` t1 JOIN `基金日行情表` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t2.`交易日期` = '20231001'"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `单位净值`, `复权单位净值` FROM 基金日行情表 WHERE `交易日期` = '20231001';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `单位净值`, `复权单位净值` FROM 基金日行情表 WHERE `交易日期` = '20231001';"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `单位净值`, `复权单位净值` FROM 基金日行情表 WHERE `交易日期` = '20231001';"
       }
     ]
   },
@@ -1124,6 +2240,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金全称`, `管理人` FROM `基金基本信息` WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1.5"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `管理人` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1.5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `管理人` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1.5;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金全称`, `管理人` FROM 基金基本信息 WHERE CAST(REPLACE(`管理费率`, '%', '') AS REAL) > 1.5;"
       }
     ]
   },
@@ -1136,6 +2264,18 @@
       {
         "from": "assistant",
         "value": "SELECT `基金代码`, `资产净值` FROM `基金日行情表` WHERE `交易日期` = '20231001' ORDER BY `资产净值` DESC"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `资产净值` FROM 基金日行情表 WHERE `交易日期` = '20231001' ORDER BY `资产净值` DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `资产净值` FROM 基金日行情表 WHERE `交易日期` = '20231001' ORDER BY `资产净值` DESC;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `基金代码`, `资产净值` FROM 基金日行情表 WHERE `交易日期` = '20231001' ORDER BY `资产净值` DESC;"
       }
     ]
   },
@@ -1148,6 +2288,18 @@
       {
         "from": "assistant",
         "value": "SELECT t1.`基金全称`, t1.`管理人` FROM `基金基本信息` t1 JOIN `基金日行情表` t2 ON t1.`基金代码` = t2.`基金代码` WHERE t2.`交易日期` = '20231001' ORDER BY t2.`资产净值` DESC LIMIT 1"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金全称`, t1.`管理人` FROM `基金基本信息` t1 JOIN (SELECT `基金代码`, MAX(`资产净值`) AS max_nav FROM `基金日行情表` WHERE `交易日期` = '20231001' GROUP BY `基金代码`) t2 ON t1.`基金代码` = t2.`基金代码` WHERE t2.max_nav = t2.`资产净值`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金全称`, t1.`管理人` FROM `基金基本信息` t1 JOIN (SELECT `基金代码`, MAX(`资产净值`) AS max_nav FROM `基金日行情表` WHERE `交易日期` = '20231001' GROUP BY `基金代码`) t2 ON t1.`基金代码` = t2.`基金代码` WHERE t2.max_nav = t2.`资产净值`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT t1.`基金全称`, t1.`管理人` FROM `基金基本信息` t1 JOIN (SELECT `基金代码`, MAX(`资产净值`) AS max_nav FROM `基金日行情表` WHERE `交易日期` = '20231001' GROUP BY `基金代码`) t2 ON t1.`基金代码` = t2.`基金代码` WHERE t2.max_nav = t2.`资产净值`;"
       }
     ]
   },
@@ -1160,6 +2312,18 @@
       {
         "from": "assistant",
         "value": "SELECT `一级行业名称`, COUNT(DISTINCT `股票代码`) AS `股票数量` FROM `A股公司行业划分表` GROUP BY `一级行业名称`"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `一级行业名称`, COUNT(*) AS `股票数量` FROM A股公司行业划分表 GROUP BY `一级行业名称`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `一级行业名称`, COUNT(*) AS `股票数量` FROM A股公司行业划分表 GROUP BY `一级行业名称`;"
+      },
+      {
+        "from": "predict",
+        "value": "SELECT `一级行业名称`, COUNT(*) AS `股票数量` FROM A股公司行业划分表 GROUP BY `一级行业名称`;"
       }
     ]
   }
